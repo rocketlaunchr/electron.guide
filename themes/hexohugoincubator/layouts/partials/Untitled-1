@@ -1,0 +1,21 @@
+{{ range .Site.Menus.nav }}
+                        {{ if .HasChildren }}
+                        <li class="doc-sidebar-list__item doc-sidebar-list__item--link doc-sidebar-list__item--has-children doc-sidebar-list__item--children-list--hidden dropdown">
+                            <a class="doc-sidebar-list__item__children-toggle doc-sidebar-list__item__children-toggle--show"
+                            href="#"
+                            target="_self"><span>Swagger</span></a>
+                            <ul class="doc-sidebar-list__children-list doc-sidebar-list__children-list--hidden dropdown-menu">
+                                <li class="doc-sidebar-list__item doc-sidebar-list__item--link doc-sidebar-list__item--child"><a
+                                        class="" href=""
+                                        target="_self"><span>Swagger to HTML</span></a></li>
+                                <li class="doc-sidebar-list__item doc-sidebar-list__item--link doc-sidebar-list__item--child"><a
+                                        class="" href="#"
+                                        target="_self"><span>Swagger UI</span></a></li>
+                            </ul>
+                        </li>
+                        {{ else }}
+
+                        <li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a class="" href="{{ .URL }}"
+                            target="_self"><span>{{ .Name }}</span></a></li>
+                        {{ end }}
+                    {{ end }}

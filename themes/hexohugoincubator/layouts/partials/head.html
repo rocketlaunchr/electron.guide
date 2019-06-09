@@ -1,0 +1,33 @@
+<script async="" src="{{ "js/analytics.js" | relURL }}"></script>
+<script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    {{- if eq .Title "" }}
+    <title>{{ .Site.Title }}</title>
+    {{- else }}
+    <title>{{ .Site.Title }} | {{ .Title }}  </title>
+    {{- end }}
+    {{- if ne .Description "" }}
+    <meta name="description" content="{{ .Description }}">
+    {{- else if isset .Site.Params "description" }}
+    <meta name="description" content="{{ .Site.Params.description }}">
+    {{- end }}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- fonts -->
+    <link href="{{ "css/css.css" | relURL }}" rel="stylesheet">
+    <link href="{{ "css/css1.css" | relURL }}" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="{{ "css/doc.css" | relURL }}">
+
+    <!-- favicon -->
+    <link rel="icon" href="{{ "images/favicon.ico" | relURL }}">
+
+
+
+    <link rel="stylesheet" type="text/css" href="{{ "css/css2.css" | relURL }}">
+</head>

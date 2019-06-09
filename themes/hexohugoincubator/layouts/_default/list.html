@@ -1,0 +1,21 @@
+{{ partial "header.html" . }}
+    
+<div id="PBExt-overlayId" style="color: rgb(255, 255, 255); text-align: center;"></div>
+
+
+{{ partial "navigation.html" . }}
+<div class="doc-content">
+<div class="dc-page">
+<div class="dc-card">
+  <div id="react-search-results-root"></div>
+  <div id="page-content" class="doc-formatting">
+    {{ .Content }}
+    <div id="react-support-footer-root"></div>
+  </div>
+</div>
+</div>
+</div>
+
+{{ partial "searchscript.html" . }}
+{{ partial "footer.html" . }}
+

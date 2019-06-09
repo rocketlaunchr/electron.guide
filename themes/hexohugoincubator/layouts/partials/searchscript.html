@@ -1,0 +1,80 @@
+<script>
+
+    window.__INITIAL_STATE__ = {
+        "page": {
+            "title": "Index",
+            "support": false,
+            "path": "/"
+        },
+        "data": {
+            "navigation": {
+                "logo": {
+                    "text": "Hugo Theme",
+                    "type": "link",
+                    "path": "/"
+                },
+                "main": [
+                    {
+                    "text": "Main Level 1",
+                    "type": "link",
+                    "path": "appendix"
+                    }, {
+                        "text": "Main Level 2",
+                        "type": "link",
+                        "path": "level"
+                    },
+                    {
+                        "text": "Column 1",
+                        "type": "label",
+                    }, 
+                    {
+                        "text": "Document Hellow",
+                        "type": "link",
+                        "path": "column-1/docu" 
+                    }, 
+                    {
+                        "text": "LaraTest",
+                        "type": "link",
+                        "path": "column-1/lara" 
+                    },
+                    
+                    {
+                        "text": "Column 2",
+                        "type": "label",
+                    }, 
+                    {
+                        "text": "Legacy",
+                        "type": "link",
+                        "path": "column-2/legacy"
+                    }
+                ]
+            }
+        },
+        "config": {
+            "timezone": "UTC",
+            "root": "/",
+            // "time_format": "HH:mm:ss",
+            // "theme": "../node_modules/hexo-theme-doc",
+            "theme_config": {
+                "swagger_ui": {
+                    "version": 2,
+                    "permalinks": true,
+                    "api_explorer": true,
+                    "download": "Download specification",
+                    "show_extensions": false,
+                    "deep_linking": true,
+                    "display_operation_id": false,
+                    "doc_expansion": "none"
+                },
+                "search": {
+                    // "skip": false,
+                    // "background": false,
+                    "route": "/js/lunr.json"
+                    // "route": '{{ "../js/lunr.json" | relURL }}'
+                },
+                "favicon": "/images/favicon.ico",
+                "google_analytics": "UA-110411486-1"
+            }
+        }
+    }
+</script>

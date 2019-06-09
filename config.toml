@@ -1,0 +1,14 @@
+baseURL = "https://electron.guide/"
+languageCode = "en-us"
+title = "electron.guide"
+theme = "hexohugoincubator"
+staticDir = ["static"]
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+author = "rocketlaunchr.cloud"
+
+[outputFormats]
+[outputs]
+    home = [ "HTML", "JSON", "RSS"]
+    page = [ "HTML" ]
+
