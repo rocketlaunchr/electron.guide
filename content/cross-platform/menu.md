@@ -10,8 +10,6 @@ documentation: https://electronjs.org/docs/api/menu
 
 ## Windows
 
-## Windows
-
 A Windows applications typically contain a menu bar at the top of the individual window.
 
 Windows 10    | Windows 7
