@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>electron.guide</title>
+    <link>https://electron.guide/</link>
+    <description>Recent content on electron.guide</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://electron.guide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BrowserWindow</title>
+      <link>https://electron.guide/cross-platform/browser-window/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/cross-platform/browser-window/</guid>
+      <description> BrowserWindow Windows    Windows 10 Windows 7              MacOS   Sample Code const {BrowserWindow} = require(&amp;#39;electron&amp;#39;).remote const path = require(&amp;#39;path&amp;#39;) const newWindowBtn = document.getElementById(&amp;#39;new-window&amp;#39;) newWindowBtn.addEventListener(&amp;#39;click&amp;#39;, (event) =&amp;gt; { const modalPath = path.join(&amp;#39;file://&amp;#39;, __dirname, &amp;#39;../../sections/windows/modal.html&amp;#39;) let win = new BrowserWindow({ width: 400, height: 320 }) win.on(&amp;#39;close&amp;#39;, () =&amp;gt; { win = null }) win.loadURL(modalPath) win.show() }) </description>
+    </item>
+    
+    <item>
+      <title>Context Menu</title>
+      <link>https://electron.guide/cross-platform/context-menu/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/cross-platform/context-menu/</guid>
+      <description>Context Menu Windows    Windows 10 Windows 7              MacOS   Sample Code Main Process const { BrowserWindow, Menu, MenuItem, ipcMain, app } = require(&amp;#39;electron&amp;#39;) const menu = new Menu() menu.append(new MenuItem({ label: &amp;#39;Hello&amp;#39; })) menu.append(new MenuItem({ type: &amp;#39;separator&amp;#39; })) menu.append(new MenuItem({ label: &amp;#39;Electron&amp;#39;, type: &amp;#39;checkbox&amp;#39;, checked: true })) app.on(&amp;#39;browser-window-created&amp;#39;, (event, win) =&amp;gt; { win.</description>
+    </item>
+    
+    <item>
+      <title>Menu</title>
+      <link>https://electron.guide/cross-platform/menu/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/cross-platform/menu/</guid>
+      <description>Menu Windows A Windows applications typically contain a menu bar at the top of the individual window.
+   Windows 10 Windows 7              MacOS MacOS uses a common menu bar at the screen’s top that the operating system and all applications share. When a particular window gets focus, the menu contents change based on the menu required by the window.</description>
+    </item>
+    
+    <item>
+      <title>Notifications</title>
+      <link>https://electron.guide/cross-platform/notifications/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/cross-platform/notifications/</guid>
+      <description>Notifications Windows    Windows 10 Windows 7       Basic      Basic        Notification with image      Notification with image       MacOS    Basic Notification with image              Sample Code Basic Notification const notification = { title: &amp;#39;Basic Notification&amp;#39;, body: &amp;#39;Short message part&amp;#39; } const notificationButton = document.</description>
+    </item>
+    
+    <item>
+      <title>Standard Dialogs</title>
+      <link>https://electron.guide/cross-platform/standard-dialogs/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/cross-platform/standard-dialogs/</guid>
+      <description>Standard Dialogs Windows    Windows 10 Windows 7       Open file      Open file        Save file      Save file       MacOS    Open Save              Sample Code Main Process const {ipcMain, dialog} = require(&amp;#39;electron&amp;#39;) ipcMain.</description>
+    </item>
+    
+    <item>
+      <title>The Final Polish</title>
+      <link>https://electron.guide/final-polish/final-polish/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/final-polish/final-polish/</guid>
+      <description>The Final Polish before release prevent Cmd+R/F5 hide dev tools 1. dom-ready vs ready-to-show
+app.Dock.Hide()
+if !app.Call(&amp;ldquo;requestSingleInstanceLock&amp;rdquo;).Bool() { // Second instance app.Exit(0) }
+electron-disable-file-drop Disable draggable Disable user selections // Prevent Electron from never exiting when an exception happensprocess.on(&amp;lsquo;uncaughtException&amp;rsquo;, error =&amp;gt; { console.error(&amp;lsquo;Exception:&amp;lsquo;, error); process.exit(1);});
+// Store data in electron-store</description>
+    </item>
+    
+    <item>
+      <title>Tray</title>
+      <link>https://electron.guide/cross-platform/tray/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/cross-platform/tray/</guid>
+      <description>Tray Windows    Windows 10 Windows 7               Tray menu      Tray menu        Balloon      Balloon       MacOS   Sample Code Main Process const path = require(&amp;#39;path&amp;#39;) const {ipcMain, app, Menu, Tray} = require(&amp;#39;electron&amp;#39;) let appIcon = null ipcMain.</description>
+    </item>
+    
+  </channel>
+</rss>
