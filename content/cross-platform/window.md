@@ -10,13 +10,9 @@ documentation: https://electronjs.org/docs/api/browser-window
 
 ## Windows
 
-### Win10:
-
-{{< figure src="/static/images/window/win10_window.png" >}}
-
-### Win7:
-
-{{< figure src="/static/images/window/win7_window.png" >}}
+Windows 10    | Windows 7
+--------|------
+{{< figure src="/static/images/window/win10_window.png" >}} | {{< figure src="/static/images/window/win7_window.png" >}}
 
 ## MacOS
 
