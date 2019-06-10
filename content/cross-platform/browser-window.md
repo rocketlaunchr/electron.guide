@@ -1,7 +1,7 @@
 ---
 title: BrowserWindow
 date: 2018-01-01
-draft: true
+draft: false
 exclude_search: false
 documentation: https://electronjs.org/docs/api/browser-window
 ---
