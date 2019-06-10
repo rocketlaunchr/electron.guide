@@ -7,6 +7,12 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 author = "rocketlaunchr.cloud"
 
+disableKinds = ["taxonomy", "taxonomyTerm", "section"]
+
+
+
+
+
 [outputFormats]
 [outputs]
     home = [ "HTML", "JSON", "RSS"]
