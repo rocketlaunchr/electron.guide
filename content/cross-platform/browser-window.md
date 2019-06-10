@@ -12,11 +12,11 @@ documentation: https://electronjs.org/docs/api/browser-window
 
 Windows 10    | Windows 7
 --------|------
-{{< figure src="/static/images/window/win10_window.png" >}} | {{< figure src="/static/images/window/win7_window.png" >}}
+{{< figure src="/static/images/browser-window/win10_window.png" >}} | {{< figure src="/static/images/browser-window/win7_window.png" >}}
 
 ## MacOS
 
-{{< figure src="/static/images/window/mac_window.png" >}}
+{{< figure src="/static/images/browser-window/mac_window.png" >}}
 
 
 {{< tabs tabTotal="3" tabID="1" tabName1="Tab 1" tabName2="Tab 2" tabName3="Tab 3" >}}
