@@ -11,7 +11,7 @@ prevent Cmd+R/F5
 
 hide dev tools
 
-
+d
 electron-disable-file-drop
 Disable draggable
 Disable user selections

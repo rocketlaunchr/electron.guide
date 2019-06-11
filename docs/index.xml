@@ -81,7 +81,7 @@ if !app.Call(&amp;ldquo;requestSingleInstanceLock&amp;rdquo;).Bool() { // Secon
       <guid>https://electron.guide/final-polish/browser-window/</guid>
       <description>The Final Polish before release - BrowserWindow prevent Cmd+R/F5
 hide dev tools
-electron-disable-file-drop Disable draggable Disable user selections</description>
+d electron-disable-file-drop Disable draggable Disable user selections</description>
     </item>
     
     <item>
