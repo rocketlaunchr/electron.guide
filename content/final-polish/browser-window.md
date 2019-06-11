@@ -18,12 +18,18 @@ You need to know the difference between these 2 events: `dom-ready` and `ready-t
 3. You can inject data like this:
 
 ```javascript
+const { BrowserWindow } = require('electron')
 
+let win = new BrowserWindow({ show: false })
 
+win.once('ready-to-show', () => {
+	win.show()
+})
 
+win.webContents.on('dom-ready', (event) => {
+	win.WebContents.send("<channel>", D1, D2, D3)
+})
 ``` 
-
-
 
 See:
 
@@ -31,9 +37,30 @@ See:
 * https://electronjs.org/docs/api/web-contents
 
 
+### Prevent BrowserWindow refreshes
+
+A user can press `Cmd+R` (on MacOS) or `F5` (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don't exhibit this behaviour.
+
+One way to solve this is to Disable the 
 
 
-prevent Cmd+R/F5
+
+
+
+	// Disable Refresh of page
+	window.On(electron.EvtBrowserWindowFocus, func(args ...*js.Object) {
+		imports.Get("globalShortcut").Call("registerAll", []string{"CommandOrControl+R", "F5"}, func() {})
+	})
+
+	// Hide the window when it loses focus
+	window.On(electron.EvtBrowserWindowBlur, func(args ...*js.Object) {
+		imports.Get("globalShortcut").Call("unregisterAll")
+		if !window.WebContents.IsDevToolsOpened() {
+			window.Hide()
+		}
+	})
+
+
 
 hide dev tools
 
