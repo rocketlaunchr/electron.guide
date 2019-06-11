@@ -3,9 +3,12 @@ languageCode = "en-us"
 title = "electron.guide"
 theme = "hexohugoincubator"
 staticDir = ["static"]
+publishDir = "docs"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 author = "rocketlaunchr.cloud"
+
+disableKinds = ["taxonomy", "taxonomyTerm", "section"]
 
 [outputFormats]
 [outputs]

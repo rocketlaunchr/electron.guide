@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141764204-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-141764204-1');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5444136912913928",
+    enable_page_level_ads: true
+  });
+</script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>electron.guide | Notifications  </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    
+    <link href="/css/css.css" rel="stylesheet">
+    <link href="/css/css1.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="/css/doc.css">
+
+    
+    <link rel="icon" href="/images/favicon.ico">
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/css2.css">
+</head>
+    <body>
+    
+<div id="PBExt-overlayId" style="color: rgb(255, 255, 255); text-align: center;"></div>
+
+
+
+<div id="react-navigation-root">
+    <div class="doc-navigation" data-reactroot="">
+        <nav class="doc-navbar"><a href="/" class="doc-navbar__logo">
+            <img src="/static/images/logo.svg" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">electron.guide</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i
+                class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i>
+            <div class="dc-search-form doc-search-form"><input type="search" class="dc-input dc-search-form__input doc-search-form__input"
+                    placeholder="Search..."><button class="dc-btn dc-search-form__btn doc-search-form__btn"><i class="dc-icon dc-icon--search"></i></button></div>
+        </nav>
+        <nav class="doc-sidebar">
+            <div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i
+                    class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div>
+            <div class="doc-sidebar-content">
+                <div class="doc-sidebar__search-form">
+                    <div class="dc-search-form doc-search-form"><input type="search" class="dc-input dc-search-form__input doc-search-form__input"
+                            placeholder="Search..."><button class="dc-btn dc-search-form__btn doc-search-form__btn"><i
+                                class="dc-icon dc-icon--search"></i></button></div>
+                </div>
+                
+                <ul class="doc-sidebar-list">
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="doc-content">
+<div class="dc-page">
+<div class="dc-card">
+
+<a title="Edit page on GitHub" href="https://github.com/rocketlaunchr/electron.guide/blob/master/content/cross-platform/notifications.md" target="_blank" style="position:relative;float:right;font-size:30px;cursor:pointer"><img height="32px" width="32px" src='data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid" version="1.1" viewBox="0 0 256 250" xmlns="http://www.w3.org/2000/svg">
+<path d="m128 0c-70.684 0-128 57.307-128 128 0 56.554 36.676 104.53 87.535 121.46 6.3971 1.1849 8.7457-2.7767 8.7457-6.1576 0-3.0523-0.1187-13.135-0.17381-23.831-35.61 7.7431-43.124-15.102-43.124-15.102-5.8227-14.795-14.212-18.729-14.212-18.729-11.614-7.9444 0.87541-7.7812 0.87541-7.7812 12.854 0.90297 19.622 13.191 19.622 13.191 11.416 19.569 29.944 13.911 37.249 10.641 1.1488-8.273 4.4661-13.92 8.1267-17.116-28.431-3.2367-58.318-14.212-58.318-63.259 0-13.975 5.0002-25.393 13.188-34.357-1.329-3.224-5.7103-16.243 1.24-33.874 0 0 10.749-3.4402 35.209 13.121 10.21-2.8361 21.16-4.2584 32.038-4.3071 10.878 0.048752 21.837 1.471 32.066 4.3071 24.431-16.561 35.165-13.121 35.165-13.121 6.9673 17.631 2.5838 30.65 1.2548 33.874 8.2073 8.964 13.174 20.382 13.174 34.357 0 49.163-29.944 59.988-58.447 63.157 4.5911 3.9722 8.6821 11.762 8.6821 23.704 0 17.127-0.14837 30.911-0.14837 35.127 0 3.4063 2.3041 7.3976 8.7923 6.1406 50.831-16.944 87.461-64.908 87.461-121.44 0-70.694-57.309-128-128-128zm-80.061 182.34c-0.28191 0.63589-1.2824 0.82666-2.1938 0.39002-0.9284-0.41757-1.4498-1.2845-1.1488-1.9225 0.27555-0.65497 1.2781-0.83726 2.2044-0.39849 0.93052 0.41757 1.4604 1.293 1.1382 1.931zm6.2962 5.618c-0.61046 0.56594-1.8038 0.30311-2.6135-0.59138-0.83726-0.89237-0.99411-2.0857-0.37518-2.6602 0.62953-0.56594 1.7869-0.30099 2.6262 0.59138 0.83726 0.90297 1.0005 2.0878 0.36246 2.6602zm4.3195 7.1881c-0.78427 0.54475-2.0667 0.033914-2.8594-1.1043-0.78427-1.1382-0.78427-2.5033 0.016957-3.0502 0.79487-0.54687 2.0582-0.05511 2.8615 1.0747 0.78215 1.1573 0.78215 2.5224-0.019077 3.0798zm7.3051 8.3248c-0.7016 0.77367-2.196 0.56595-3.2897-0.48964-1.1192-1.0323-1.4308-2.4969-0.72704-3.2706 0.71008-0.77579 2.2129-0.55747 3.3151 0.48964 1.1107 1.0301 1.4498 2.5054 0.7016 3.2706zm9.4412 2.8104c-0.30947 1.0026-1.7487 1.4583-3.1985 1.0323-1.4477-0.43877-2.3952-1.613-2.1027-2.6262 0.30099-1.009 1.7466-1.4838 3.207-1.028 1.4456 0.43665 2.3952 1.6025 2.0942 2.622zm10.744 1.1921c0.036034 1.0556-1.1934 1.931-2.7153 1.9501-1.5304 0.033914-2.7683-0.8203-2.7852-1.8589 0-1.0662 1.2018-1.9331 2.7322-1.9586 1.5219-0.029675 2.7683 0.81818 2.7683 1.8674zm10.555-0.4046c0.18229 1.0301-0.87541 2.0878-2.3867 2.3698-1.4859 0.27131-2.8615-0.36458-3.0502-1.3862-0.18441-1.0556 0.89237-2.1133 2.3761-2.3867 1.5134-0.26284 2.8679 0.3561 3.0608 1.4032z" fill="161614"/>
+</svg>'></a>
+  
+   
+  <span style="position:relative;float:right;"><pre> </pre></span>
+  <a title="Documentation" href="https://electronjs.org/docs/api/notification" target="_blank" style="position:relative;float:right;font-size:30px;cursor:pointer">
+    <img height="32px" width="32px" src='/static/images/github-logo.png'>
+  </a>
+  
+
+
+  <div id="react-search-results-root">
+      <div class="doc-search-results"></div>
+  </div>
+  <div id="page-content" class="doc-formatting">
+    
+
+<h1 id="notifications">Notifications</h1>
+
+<h3 id="windows">Windows</h3>
+
+<table>
+<thead>
+<tr>
+<th>Windows 10</th>
+<th>Windows 7</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><figure>
+    <img src="/static/images/notifications/win10_basic.png"/> <figcaption>
+            <h4>Basic</h4>
+        </figcaption>
+</figure>
+</td>
+<td><figure>
+    <img src="/static/images/notifications/win7_basic.png"/> <figcaption>
+            <h4>Basic</h4>
+        </figcaption>
+</figure>
+</td>
+</tr>
+
+<tr>
+<td><figure>
+    <img src="/static/images/notifications/win10_image.png"/> <figcaption>
+            <h4>Notification with image</h4>
+        </figcaption>
+</figure>
+</td>
+<td><figure>
+    <img src="/static/images/notifications/win7_image.png"/> <figcaption>
+            <h4>Notification with image</h4>
+        </figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="macos">MacOS</h3>
+
+<table>
+<thead>
+<tr>
+<th>Basic</th>
+<th>Notification with image</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><figure>
+    <img src="/static/images/notifications/mac_basic.gif"/> 
+</figure>
+</td>
+<td><figure>
+    <img src="/static/images/notifications/mac_image.gif"/> 
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="sample-code">Sample Code</h2>
+
+<h3 id="basic-notification">Basic Notification</h3>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">notification</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Basic Notification&#39;</span><span class="p">,</span>
+  <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;Short message part&#39;</span>
+<span class="p">}</span>
+
+<span class="k">const</span> <span class="nx">notificationButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;basic-noti&#39;</span><span class="p">)</span>
+
+<span class="nx">notificationButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="nx">myNotification</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Notification</span><span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nx">notification</span><span class="p">)</span>
+
+  <span class="nx">myNotification</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Notification clicked&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+<h3 id="notification-with-image">Notification with image</h3>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+
+<span class="k">const</span> <span class="nx">notification</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Notification with image&#39;</span><span class="p">,</span>
+  <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;Short message plus a custom image&#39;</span><span class="p">,</span>
+  <span class="nx">icon</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;../../../assets/img/programming.png&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">const</span> <span class="nx">notificationButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;advanced-noti&#39;</span><span class="p">)</span>
+
+<span class="nx">notificationButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="nx">myNotification</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Notification</span><span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nx">notification</span><span class="p">)</span>
+
+  <span class="nx">myNotification</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Notification clicked&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+<h2 id="extra-info">Extra Info</h2>
+
+<ul>
+<li><a href="https://electronjs.org/docs/tutorial/notifications">https://electronjs.org/docs/tutorial/notifications</a> (HTML5 Renderer Process)</li>
+<li><a href="https://github.com/felixrieseberg/electron-windows-notifications">https://github.com/felixrieseberg/electron-windows-notifications</a></li>
+</ul>
+
+    <div id="react-support-footer-root">
+      
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dc-page">
+	<div id="disqus_thread"></div>
+
+  <div style="text-align: center;"> &copy; 2019 <a target="_blank" href="https://rocketlaunchr.cloud">rocketlaunchr.cloud</a>. All rights reserved.</div>
+</div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https://electron.guide/cross-platform/notifications/";  
+this.page.identifier = "/cross-platform/notifications/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://electron-guide.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+
+
+</div>
+
+<script>
+
+    window.__INITIAL_STATE__ = {
+        "page": {
+            "title": "Index",
+            "support": false,
+            "path": "/"
+        },
+        "data": {
+            "navigation": {
+                "logo": {
+                    "text": "electron.guide",
+                    "type": "link",
+                    "path": "/"
+                },
+                "main": [
+                    {
+                    "text": "Main Level 1",
+                    "type": "link",
+                    "path": "appendix"
+                    }, {
+                        "text": "Main Level 2",
+                        "type": "link",
+                        "path": "level"
+                    },
+                    {
+                        "text": "Column 1",
+                        "type": "label",
+                    }, 
+                    {
+                        "text": "Document Hellow",
+                        "type": "link",
+                        "path": "column-1/docu" 
+                    }, 
+                    {
+                        "text": "LaraTest",
+                        "type": "link",
+                        "path": "column-1/lara" 
+                    },
+                    
+                    {
+                        "text": "Column 2",
+                        "type": "label",
+                    }, 
+                    {
+                        "text": "Legacy",
+                        "type": "link",
+                        "path": "column-2/legacy"
+                    }
+                ]
+            }
+        },
+        "config": {
+            "timezone": "UTC",
+            "root": "/",
+            
+            
+            "theme_config": {
+                "swagger_ui": {
+                    "version": 2,
+                    "permalinks": true,
+                    "api_explorer": true,
+                    "download": "Download specification",
+                    "show_extensions": false,
+                    "deep_linking": true,
+                    "display_operation_id": false,
+                    "doc_expansion": "none"
+                },
+                "search": {
+                    
+                    
+                    "route": "/js/lunr.json"
+                    
+                },
+                "favicon": "/images/favicon.ico",
+                "google_analytics": "UA-141764204-1"
+            }
+        }
+    }
+</script>
+  
+      
+      <script src="/js/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+      
+      <script src="/js/lunr.js"></script>
+      <script src="/js/search.js"></script>
+  
+      
+      <script src="/js/doc.js"></script>
+  
+      
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+            
+            $(".dropdown").click(function(){
+                $(this).find(".dropdown-menu").slideToggle("fast");
+            });
+        });
+        $(document).on("click", function(event){
+            var $trigger = $(".dropdown");
+            if($trigger !== event.target && !$trigger.has(event.target).length){
+                $(".dropdown-menu").slideUp("fast");
+            }            
+        });
+    </script>
+    
+  
+  </body></html>
+

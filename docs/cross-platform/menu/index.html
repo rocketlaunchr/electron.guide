@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141764204-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-141764204-1');
+    </script>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5444136912913928",
+    enable_page_level_ads: true
+  });
+</script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>electron.guide | Menu  </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    
+    <link href="/css/css.css" rel="stylesheet">
+    <link href="/css/css1.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="/css/doc.css">
+
+    
+    <link rel="icon" href="/images/favicon.ico">
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/css2.css">
+</head>
+    <body>
+    
+<div id="PBExt-overlayId" style="color: rgb(255, 255, 255); text-align: center;"></div>
+
+
+
+<div id="react-navigation-root">
+    <div class="doc-navigation" data-reactroot="">
+        <nav class="doc-navbar"><a href="/" class="doc-navbar__logo">
+            <img src="/static/images/logo.svg" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">electron.guide</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i
+                class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i>
+            <div class="dc-search-form doc-search-form"><input type="search" class="dc-input dc-search-form__input doc-search-form__input"
+                    placeholder="Search..."><button class="dc-btn dc-search-form__btn doc-search-form__btn"><i class="dc-icon dc-icon--search"></i></button></div>
+        </nav>
+        <nav class="doc-sidebar">
+            <div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i
+                    class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div>
+            <div class="doc-sidebar-content">
+                <div class="doc-sidebar__search-form">
+                    <div class="dc-search-form doc-search-form"><input type="search" class="dc-input dc-search-form__input doc-search-form__input"
+                            placeholder="Search..."><button class="dc-btn dc-search-form__btn doc-search-form__btn"><i
+                                class="dc-icon dc-icon--search"></i></button></div>
+                </div>
+                
+                <ul class="doc-sidebar-list">
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="doc-content">
+<div class="dc-page">
+<div class="dc-card">
+
+<a title="Edit page on GitHub" href="https://github.com/rocketlaunchr/electron.guide/blob/master/content/cross-platform/menu.md" target="_blank" style="position:relative;float:right;font-size:30px;cursor:pointer"><img height="32px" width="32px" src='data:image/svg+xml;utf8,<svg preserveAspectRatio="xMidYMid" version="1.1" viewBox="0 0 256 250" xmlns="http://www.w3.org/2000/svg">
+<path d="m128 0c-70.684 0-128 57.307-128 128 0 56.554 36.676 104.53 87.535 121.46 6.3971 1.1849 8.7457-2.7767 8.7457-6.1576 0-3.0523-0.1187-13.135-0.17381-23.831-35.61 7.7431-43.124-15.102-43.124-15.102-5.8227-14.795-14.212-18.729-14.212-18.729-11.614-7.9444 0.87541-7.7812 0.87541-7.7812 12.854 0.90297 19.622 13.191 19.622 13.191 11.416 19.569 29.944 13.911 37.249 10.641 1.1488-8.273 4.4661-13.92 8.1267-17.116-28.431-3.2367-58.318-14.212-58.318-63.259 0-13.975 5.0002-25.393 13.188-34.357-1.329-3.224-5.7103-16.243 1.24-33.874 0 0 10.749-3.4402 35.209 13.121 10.21-2.8361 21.16-4.2584 32.038-4.3071 10.878 0.048752 21.837 1.471 32.066 4.3071 24.431-16.561 35.165-13.121 35.165-13.121 6.9673 17.631 2.5838 30.65 1.2548 33.874 8.2073 8.964 13.174 20.382 13.174 34.357 0 49.163-29.944 59.988-58.447 63.157 4.5911 3.9722 8.6821 11.762 8.6821 23.704 0 17.127-0.14837 30.911-0.14837 35.127 0 3.4063 2.3041 7.3976 8.7923 6.1406 50.831-16.944 87.461-64.908 87.461-121.44 0-70.694-57.309-128-128-128zm-80.061 182.34c-0.28191 0.63589-1.2824 0.82666-2.1938 0.39002-0.9284-0.41757-1.4498-1.2845-1.1488-1.9225 0.27555-0.65497 1.2781-0.83726 2.2044-0.39849 0.93052 0.41757 1.4604 1.293 1.1382 1.931zm6.2962 5.618c-0.61046 0.56594-1.8038 0.30311-2.6135-0.59138-0.83726-0.89237-0.99411-2.0857-0.37518-2.6602 0.62953-0.56594 1.7869-0.30099 2.6262 0.59138 0.83726 0.90297 1.0005 2.0878 0.36246 2.6602zm4.3195 7.1881c-0.78427 0.54475-2.0667 0.033914-2.8594-1.1043-0.78427-1.1382-0.78427-2.5033 0.016957-3.0502 0.79487-0.54687 2.0582-0.05511 2.8615 1.0747 0.78215 1.1573 0.78215 2.5224-0.019077 3.0798zm7.3051 8.3248c-0.7016 0.77367-2.196 0.56595-3.2897-0.48964-1.1192-1.0323-1.4308-2.4969-0.72704-3.2706 0.71008-0.77579 2.2129-0.55747 3.3151 0.48964 1.1107 1.0301 1.4498 2.5054 0.7016 3.2706zm9.4412 2.8104c-0.30947 1.0026-1.7487 1.4583-3.1985 1.0323-1.4477-0.43877-2.3952-1.613-2.1027-2.6262 0.30099-1.009 1.7466-1.4838 3.207-1.028 1.4456 0.43665 2.3952 1.6025 2.0942 2.622zm10.744 1.1921c0.036034 1.0556-1.1934 1.931-2.7153 1.9501-1.5304 0.033914-2.7683-0.8203-2.7852-1.8589 0-1.0662 1.2018-1.9331 2.7322-1.9586 1.5219-0.029675 2.7683 0.81818 2.7683 1.8674zm10.555-0.4046c0.18229 1.0301-0.87541 2.0878-2.3867 2.3698-1.4859 0.27131-2.8615-0.36458-3.0502-1.3862-0.18441-1.0556 0.89237-2.1133 2.3761-2.3867 1.5134-0.26284 2.8679 0.3561 3.0608 1.4032z" fill="161614"/>
+</svg>'></a>
+  
+   
+  <span style="position:relative;float:right;"><pre> </pre></span>
+  <a title="Documentation" href="https://electronjs.org/docs/api/menu" target="_blank" style="position:relative;float:right;font-size:30px;cursor:pointer">
+    <img height="32px" width="32px" src='/static/images/github-logo.png'>
+  </a>
+  
+
+
+  <div id="react-search-results-root">
+      <div class="doc-search-results"></div>
+  </div>
+  <div id="page-content" class="doc-formatting">
+    
+
+<h1 id="menu">Menu</h1>
+
+<h3 id="windows">Windows</h3>
+
+<p>A Windows applications typically contain a menu bar at the top of the individual window.</p>
+
+<table>
+<thead>
+<tr>
+<th>Windows 10</th>
+<th>Windows 7</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><figure>
+    <img src="/static/images/menu/win10_menu.png"/> 
+</figure>
+</td>
+<td><figure>
+    <img src="/static/images/menu/win7_menu.png"/> 
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="macos">MacOS</h3>
+
+<p>MacOS uses a common menu bar at the screen’s top that the operating system and all applications share. When a particular window gets focus, the menu contents change based on the menu required by the window.</p>
+
+<figure>
+    <img src="/static/images/menu/mac_menu.png"/> 
+</figure>
+
+
+<h2 id="sample-code">Sample Code</h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="p">{</span><span class="nx">BrowserWindow</span><span class="p">,</span> <span class="nx">Menu</span><span class="p">,</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">shell</span><span class="p">,</span> <span class="nx">dialog</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nx">template</span> <span class="o">=</span> <span class="p">[{</span>
+  <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Edit&#39;</span><span class="p">,</span>
+  <span class="nx">submenu</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Undo&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+Z&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;undo&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Redo&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;Shift+CmdOrCtrl+Z&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;redo&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;separator&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Cut&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+X&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;cut&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Copy&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+C&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;copy&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Paste&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+V&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;paste&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Select All&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+A&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;selectall&#39;</span>
+  <span class="p">}]</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;View&#39;</span><span class="p">,</span>
+  <span class="nx">submenu</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Reload&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+R&#39;</span><span class="p">,</span>
+    <span class="nx">click</span><span class="o">:</span> <span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">focusedWindow</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">focusedWindow</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// on reload, start fresh and close any old
+</span><span class="c1"></span>        <span class="c1">// open secondary windows
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">focusedWindow</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">BrowserWindow</span><span class="p">.</span><span class="nx">getAllWindows</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">win</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">id</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">win</span><span class="p">.</span><span class="nx">close</span><span class="p">()</span>
+          <span class="p">})</span>
+        <span class="p">}</span>
+        <span class="nx">focusedWindow</span><span class="p">.</span><span class="nx">reload</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Toggle Full Screen&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span> <span class="o">===</span> <span class="s1">&#39;darwin&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Ctrl+Command+F&#39;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;F11&#39;</span>
+      <span class="p">}</span>
+    <span class="p">})(),</span>
+    <span class="nx">click</span><span class="o">:</span> <span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">focusedWindow</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">focusedWindow</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">focusedWindow</span><span class="p">.</span><span class="nx">setFullScreen</span><span class="p">(</span><span class="o">!</span><span class="nx">focusedWindow</span><span class="p">.</span><span class="nx">isFullScreen</span><span class="p">())</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Toggle Developer Tools&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span> <span class="o">===</span> <span class="s1">&#39;darwin&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Alt+Command+I&#39;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Ctrl+Shift+I&#39;</span>
+      <span class="p">}</span>
+    <span class="p">})(),</span>
+    <span class="nx">click</span><span class="o">:</span> <span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">focusedWindow</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">focusedWindow</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">focusedWindow</span><span class="p">.</span><span class="nx">toggleDevTools</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;separator&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;App Menu Demo&#39;</span><span class="p">,</span>
+    <span class="nx">click</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">focusedWindow</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">focusedWindow</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;info&#39;</span><span class="p">,</span>
+          <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Application Menu Demo&#39;</span><span class="p">,</span>
+          <span class="nx">buttons</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Ok&#39;</span><span class="p">],</span>
+          <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;This demo is for the Menu section, showing how to create a clickable menu item in the application menu.&#39;</span>
+        <span class="p">}</span>
+        <span class="nx">dialog</span><span class="p">.</span><span class="nx">showMessageBox</span><span class="p">(</span><span class="nx">focusedWindow</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{})</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}]</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Window&#39;</span><span class="p">,</span>
+  <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;window&#39;</span><span class="p">,</span>
+  <span class="nx">submenu</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Minimize&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+M&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;minimize&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Close&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+W&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;close&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;separator&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Reopen Window&#39;</span><span class="p">,</span>
+    <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;CmdOrCtrl+Shift+T&#39;</span><span class="p">,</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;reopenMenuItem&#39;</span><span class="p">,</span>
+    <span class="nx">click</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;activate&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}]</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Help&#39;</span><span class="p">,</span>
+  <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;help&#39;</span><span class="p">,</span>
+  <span class="nx">submenu</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Learn More&#39;</span><span class="p">,</span>
+    <span class="nx">click</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">shell</span><span class="p">.</span><span class="nx">openExternal</span><span class="p">(</span><span class="s1">&#39;http://electron.atom.io&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}]</span>
+<span class="p">}]</span>
+
+<span class="kd">function</span> <span class="nx">addUpdateMenuItems</span> <span class="p">(</span><span class="nx">items</span><span class="p">,</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">mas</span><span class="p">)</span> <span class="k">return</span>
+
+  <span class="k">const</span> <span class="nx">version</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">getVersion</span><span class="p">()</span>
+  <span class="kd">let</span> <span class="nx">updateItems</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="sb">`Version </span><span class="si">${</span><span class="nx">version</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Checking for Update&#39;</span><span class="p">,</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;checkingForUpdate&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Check for Update&#39;</span><span class="p">,</span>
+    <span class="nx">visible</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;checkForUpdate&#39;</span><span class="p">,</span>
+    <span class="nx">click</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">).</span><span class="nx">autoUpdater</span><span class="p">.</span><span class="nx">checkForUpdates</span><span class="p">()</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Restart and Install Update&#39;</span><span class="p">,</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">visible</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;restartToUpdate&#39;</span><span class="p">,</span>
+    <span class="nx">click</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">).</span><span class="nx">autoUpdater</span><span class="p">.</span><span class="nx">quitAndInstall</span><span class="p">()</span>
+    <span class="p">}</span>
+  <span class="p">}]</span>
+
+  <span class="nx">items</span><span class="p">.</span><span class="nx">splice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">items</span><span class="p">,</span> <span class="p">[</span><span class="nx">position</span><span class="p">,</span> <span class="mi">0</span><span class="p">].</span><span class="nx">concat</span><span class="p">(</span><span class="nx">updateItems</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">findReopenMenuItem</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="nx">menu</span> <span class="o">=</span> <span class="nx">Menu</span><span class="p">.</span><span class="nx">getApplicationMenu</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">menu</span><span class="p">)</span> <span class="k">return</span>
+
+  <span class="kd">let</span> <span class="nx">reopenMenuItem</span>
+  <span class="nx">menu</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">submenu</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">item</span><span class="p">.</span><span class="nx">submenu</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">key</span> <span class="o">===</span> <span class="s1">&#39;reopenMenuItem&#39;</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">reopenMenuItem</span> <span class="o">=</span> <span class="nx">item</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+  <span class="k">return</span> <span class="nx">reopenMenuItem</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span> <span class="o">===</span> <span class="s1">&#39;darwin&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span>
+  <span class="nx">template</span><span class="p">.</span><span class="nx">unshift</span><span class="p">({</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
+    <span class="nx">submenu</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="nx">label</span><span class="o">:</span> <span class="sb">`About </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+      <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;about&#39;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;separator&#39;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Services&#39;</span><span class="p">,</span>
+      <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;services&#39;</span><span class="p">,</span>
+      <span class="nx">submenu</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;separator&#39;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">label</span><span class="o">:</span> <span class="sb">`Hide </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+      <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;Command+H&#39;</span><span class="p">,</span>
+      <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;hide&#39;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Hide Others&#39;</span><span class="p">,</span>
+      <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;Command+Alt+H&#39;</span><span class="p">,</span>
+      <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;hideothers&#39;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Show All&#39;</span><span class="p">,</span>
+      <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;unhide&#39;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;separator&#39;</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Quit&#39;</span><span class="p">,</span>
+      <span class="nx">accelerator</span><span class="o">:</span> <span class="s1">&#39;Command+Q&#39;</span><span class="p">,</span>
+      <span class="nx">click</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">app</span><span class="p">.</span><span class="nx">quit</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">})</span>
+
+  <span class="c1">// Window menu.
+</span><span class="c1"></span>  <span class="nx">template</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="nx">submenu</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;separator&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Bring All to Front&#39;</span><span class="p">,</span>
+    <span class="nx">role</span><span class="o">:</span> <span class="s1">&#39;front&#39;</span>
+  <span class="p">})</span>
+
+  <span class="nx">addUpdateMenuItems</span><span class="p">(</span><span class="nx">template</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">submenu</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span> <span class="o">===</span> <span class="s1">&#39;win32&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="nx">helpMenu</span> <span class="o">=</span> <span class="nx">template</span><span class="p">[</span><span class="nx">template</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">submenu</span>
+  <span class="nx">addUpdateMenuItems</span><span class="p">(</span><span class="nx">helpMenu</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="nx">menu</span> <span class="o">=</span> <span class="nx">Menu</span><span class="p">.</span><span class="nx">buildFromTemplate</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span>
+  <span class="nx">Menu</span><span class="p">.</span><span class="nx">setApplicationMenu</span><span class="p">(</span><span class="nx">menu</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;browser-window-created&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">reopenMenuItem</span> <span class="o">=</span> <span class="nx">findReopenMenuItem</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">reopenMenuItem</span><span class="p">)</span> <span class="nx">reopenMenuItem</span><span class="p">.</span><span class="nx">enabled</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;window-all-closed&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">reopenMenuItem</span> <span class="o">=</span> <span class="nx">findReopenMenuItem</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">reopenMenuItem</span><span class="p">)</span> <span class="nx">reopenMenuItem</span><span class="p">.</span><span class="nx">enabled</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">})</span>
+</code></pre></div>
+    <div id="react-support-footer-root">
+      
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dc-page">
+	<div id="disqus_thread"></div>
+
+  <div style="text-align: center;"> &copy; 2019 <a target="_blank" href="https://rocketlaunchr.cloud">rocketlaunchr.cloud</a>. All rights reserved.</div>
+</div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https://electron.guide/cross-platform/menu/";  
+this.page.identifier = "/cross-platform/menu/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://electron-guide.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+
+
+</div>
+
+<script>
+
+    window.__INITIAL_STATE__ = {
+        "page": {
+            "title": "Index",
+            "support": false,
+            "path": "/"
+        },
+        "data": {
+            "navigation": {
+                "logo": {
+                    "text": "electron.guide",
+                    "type": "link",
+                    "path": "/"
+                },
+                "main": [
+                    {
+                    "text": "Main Level 1",
+                    "type": "link",
+                    "path": "appendix"
+                    }, {
+                        "text": "Main Level 2",
+                        "type": "link",
+                        "path": "level"
+                    },
+                    {
+                        "text": "Column 1",
+                        "type": "label",
+                    }, 
+                    {
+                        "text": "Document Hellow",
+                        "type": "link",
+                        "path": "column-1/docu" 
+                    }, 
+                    {
+                        "text": "LaraTest",
+                        "type": "link",
+                        "path": "column-1/lara" 
+                    },
+                    
+                    {
+                        "text": "Column 2",
+                        "type": "label",
+                    }, 
+                    {
+                        "text": "Legacy",
+                        "type": "link",
+                        "path": "column-2/legacy"
+                    }
+                ]
+            }
+        },
+        "config": {
+            "timezone": "UTC",
+            "root": "/",
+            
+            
+            "theme_config": {
+                "swagger_ui": {
+                    "version": 2,
+                    "permalinks": true,
+                    "api_explorer": true,
+                    "download": "Download specification",
+                    "show_extensions": false,
+                    "deep_linking": true,
+                    "display_operation_id": false,
+                    "doc_expansion": "none"
+                },
+                "search": {
+                    
+                    
+                    "route": "/js/lunr.json"
+                    
+                },
+                "favicon": "/images/favicon.ico",
+                "google_analytics": "UA-141764204-1"
+            }
+        }
+    }
+</script>
+  
+      
+      <script src="/js/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+      
+      <script src="/js/lunr.js"></script>
+      <script src="/js/search.js"></script>
+  
+      
+      <script src="/js/doc.js"></script>
+  
+      
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+            
+            $(".dropdown").click(function(){
+                $(this).find(".dropdown-menu").slideToggle("fast");
+            });
+        });
+        $(document).on("click", function(event){
+            var $trigger = $(".dropdown");
+            if($trigger !== event.target && !$trigger.has(event.target).length){
+                $(".dropdown-menu").slideUp("fast");
+            }            
+        });
+    </script>
+    
+  
+  </body></html>
+
