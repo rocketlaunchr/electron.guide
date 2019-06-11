@@ -1,6 +1,7 @@
 baseURL = "https://electron.guide/"
 languageCode = "en-us"
 title = "electron.guide"
+googleAnalytics = "UA-141764204-1"
 theme = "hexohugoincubator"
 staticDir = ["static"]
 publishDir = "docs"
@@ -15,3 +16,6 @@ disableKinds = ["taxonomy", "taxonomyTerm", "section"]
     home = [ "HTML", "JSON", "RSS"]
     page = [ "HTML" ]
 
+
+[params]
+	adSense = "ca-pub-5444136912913928"
