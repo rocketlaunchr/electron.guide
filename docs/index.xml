@@ -58,16 +58,30 @@
     </item>
     
     <item>
-      <title>The Final Polish</title>
-      <link>https://electron.guide/final-polish/final-polish/</link>
+      <title>The Final Polish - Application</title>
+      <link>https://electron.guide/final-polish/application/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://electron.guide/final-polish/final-polish/</guid>
-      <description>The Final Polish before release prevent Cmd+R/F5 hide dev tools 1. dom-ready vs ready-to-show
+      <guid>https://electron.guide/final-polish/application/</guid>
+      <description>The Final Polish before release - Application Prevent a second instance of your application from running dom-ready vs ready-to-show Store configuration data https://github.com/sindresorhus/electron-store
+https://github.com/atom/node-keytar
+https://medium.com/cameron-nokes/how-to-securely-store-sensitive-information-in-electron-with-node-keytar-51af99f1cfc4
+ 1. dom-ready vs ready-to-show
 app.Dock.Hide()
 if !app.Call(&amp;ldquo;requestSingleInstanceLock&amp;rdquo;).Bool() { // Second instance app.Exit(0) }
-electron-disable-file-drop Disable draggable Disable user selections // Prevent Electron from never exiting when an exception happensprocess.on(&amp;lsquo;uncaughtException&amp;rsquo;, error =&amp;gt; { console.error(&amp;lsquo;Exception:&amp;lsquo;, error); process.exit(1);});
+// Prevent Electron from never exiting when an exception happensprocess.on(&amp;lsquo;uncaughtException&amp;rsquo;, error =&amp;gt; { console.error(&amp;lsquo;Exception:&amp;lsquo;, error); process.exit(1);});
 // Store data in electron-store</description>
+    </item>
+    
+    <item>
+      <title>The Final Polish - BrowserWindow</title>
+      <link>https://electron.guide/final-polish/browser-window/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/final-polish/browser-window/</guid>
+      <description>The Final Polish before release - BrowserWindow prevent Cmd+R/F5
+hide dev tools
+electron-disable-file-drop Disable draggable Disable user selections</description>
     </item>
     
     <item>
