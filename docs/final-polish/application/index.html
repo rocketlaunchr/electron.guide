@@ -89,32 +89,57 @@
   <div id="page-content" class="doc-formatting">
     
 
-<h1 id="the-final-polish-before-release-application">The Final Polish before release - Application</h1>
+<h1 id="the-final-polish-before-release">The Final Polish before release</h1>
 
-<h3 id="prevent-a-second-instance-of-your-application-from-running">Prevent a second instance of your application from running</h3>
+<h3 id="prevent-a-second-instance-of-your-application-from-running"><strong>Prevent a second instance of your application from running</strong></h3>
 
-<h3 id="dom-ready-vs-ready-to-show">dom-ready vs ready-to-show</h3>
+<p>Usually, you only want one instance of your application running at any moment.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="p">{</span> <span class="nx">app</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
 
-<h3 id="store-configuration-data">Store configuration data</h3>
+<span class="k">const</span> <span class="nx">gotTheLock</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">requestSingleInstanceLock</span><span class="p">()</span>
 
-<p><a href="https://github.com/sindresorhus/electron-store">https://github.com/sindresorhus/electron-store</a></p>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">gotTheLock</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>See: <a href="https://electronjs.org/docs/api/app#apprequestsingleinstancelock">https://electronjs.org/docs/api/app#apprequestsingleinstancelock</a></p>
 
-<p><a href="https://github.com/atom/node-keytar">https://github.com/atom/node-keytar</a></p>
+<h3 id="store-configuration-data"><strong>Store configuration data</strong></h3>
 
-<p><a href="https://medium.com/cameron-nokes/how-to-securely-store-sensitive-information-in-electron-with-node-keytar-51af99f1cfc4">https://medium.com/cameron-nokes/how-to-securely-store-sensitive-information-in-electron-with-node-keytar-51af99f1cfc4</a></p>
+<p>Users expect any customizations to their settings to persist on app reload (e.g. computer restart).</p>
 
-<p> 1. dom-ready vs ready-to-show</p>
+<p>You can use <a href="https://github.com/sindresorhus/electron-store">electron-store</a> to save data.</p>
 
-<p>app.Dock.Hide()</p>
+<p>For sensitive security data such as OAuth tokens, you <strong>MUST</strong> store them in the &ldquo;password vault&rdquo; provided by the operating system.</p>
 
-<p>if !app.Call(&ldquo;requestSingleInstanceLock&rdquo;).Bool() {
- // Second instance
- app.Exit(0)
- }</p>
+<p>You can use <a href="https://github.com/atom/node-keytar">node-keytar</a> for this.</p>
 
-<p>// Prevent Electron from never exiting when an exception happensprocess.on(&lsquo;uncaughtException&rsquo;, error =&gt; { console.error(&lsquo;Exception:&lsquo;, error); process.exit(1);});</p>
+<p>An excellent blog post with <a href="https://medium.com/cameron-nokes/how-to-securely-store-sensitive-information-in-electron-with-node-keytar-51af99f1cfc4">instructions is here</a>.</p>
 
-<p>// Store data in electron-store</p>
+<p>Using Keytar requires the library to be &ldquo;rebuilt&rdquo; for each OS/Electron version you want to deploy to:</p>
+
+<ul>
+<li><a href="https://github.com/electron/electron-rebuild">https://github.com/electron/electron-rebuild</a></li>
+<li><a href="https://github.com/electron/electron/blob/master/docs/tutorial/using-native-node-modules.md">https://github.com/electron/electron/blob/master/docs/tutorial/using-native-node-modules.md</a></li>
+</ul>
+
+<h3 id="catch-fatal-exceptions"><strong>Catch Fatal Exceptions</strong></h3>
+
+<p>Sometimes Electron Applications mysteriously crash. Other times, they display a hideous error message:</p>
+
+<figure>
+    <img src="/static/images/final-polish/application/exception.png"/> 
+</figure>
+
+
+<p>You can intercept it and replace the error message with a prettier window:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">process</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;uncaughtException&#39;</span><span class="p">,</span> <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+	<span class="c1">// Replace below with displaying a prettier window
+</span><span class="c1"></span>	<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Exception:&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span> 
+	<span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>See <a href="https://github.com/sindresorhus/electron-unhandled">https://github.com/sindresorhus/electron-unhandled</a></p>
 
     <div id="react-support-footer-root">
       
@@ -167,37 +192,52 @@ s.setAttribute('data-timestamp', +new Date());
                 },
                 "main": [
                     {
-                    "text": "Main Level 1",
-                    "type": "link",
-                    "path": "appendix"
-                    }, {
-                        "text": "Main Level 2",
-                        "type": "link",
-                        "path": "level"
+                        "text": "Cross Platform",
+                        "type": "label",
                     },
                     {
-                        "text": "Column 1",
-                        "type": "label",
-                    }, 
-                    {
-                        "text": "Document Hellow",
+                        "text": "BrowserWindow",
                         "type": "link",
-                        "path": "column-1/docu" 
-                    }, 
-                    {
-                        "text": "LaraTest",
-                        "type": "link",
-                        "path": "column-1/lara" 
+                        "path": "/cross-platform/browser-window"
                     },
-                    
                     {
-                        "text": "Column 2",
-                        "type": "label",
-                    }, 
-                    {
-                        "text": "Legacy",
+                        "text": "Context Menu",
                         "type": "link",
-                        "path": "column-2/legacy"
+                        "path": "/cross-platform/context-menu"
+                    },
+                    {
+                        "text": "Menu",
+                        "type": "link",
+                        "path": "/cross-platform/menu"
+                    },
+                    {
+                        "text": "Notifications",
+                        "type": "link",
+                        "path": "/cross-platform/notifications"
+                    },
+                    {
+                        "text": "Standard Dialogs",
+                        "type": "link",
+                        "path": "/cross-platform/standard-dialogs"
+                    },
+                    {
+                        "text": "Tray",
+                        "type": "link",
+                        "path": "/cross-platform/tray"
+                    },
+                    {
+                        "text": "The Final Polish",
+                        "type": "label",
+                    },
+                    {
+                        "text": "Application",
+                        "type": "link",
+                        "path": "/final-polish/application"
+                    },
+                    {
+                        "text": "Renderer",
+                        "type": "link",
+                        "path": "/final-polish/renderer"
                     }
                 ]
             }

@@ -63,25 +63,22 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/final-polish/application/</guid>
-      <description>The Final Polish before release - Application Prevent a second instance of your application from running dom-ready vs ready-to-show Store configuration data https://github.com/sindresorhus/electron-store
-https://github.com/atom/node-keytar
-https://medium.com/cameron-nokes/how-to-securely-store-sensitive-information-in-electron-with-node-keytar-51af99f1cfc4
- 1. dom-ready vs ready-to-show
-app.Dock.Hide()
-if !app.Call(&amp;ldquo;requestSingleInstanceLock&amp;rdquo;).Bool() { // Second instance app.Exit(0) }
-// Prevent Electron from never exiting when an exception happensprocess.on(&amp;lsquo;uncaughtException&amp;rsquo;, error =&amp;gt; { console.error(&amp;lsquo;Exception:&amp;lsquo;, error); process.exit(1);});
-// Store data in electron-store</description>
+      <description>The Final Polish before release Prevent a second instance of your application from running Usually, you only want one instance of your application running at any moment.
+const { app } = require(&amp;#39;electron&amp;#39;) const gotTheLock = app.requestSingleInstanceLock() if (!gotTheLock) { app.exit(0) }  See: https://electronjs.org/docs/api/app#apprequestsingleinstancelock
+Store configuration data Users expect any customizations to their settings to persist on app reload (e.g. computer restart).
+You can use electron-store to save data.</description>
     </item>
     
     <item>
       <title>The Final Polish - BrowserWindow</title>
-      <link>https://electron.guide/final-polish/browser-window/</link>
+      <link>https://electron.guide/final-polish/renderer/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://electron.guide/final-polish/browser-window/</guid>
-      <description>The Final Polish before release - BrowserWindow prevent Cmd+R/F5
-hide dev tools
-d electron-disable-file-drop Disable draggable Disable user selections</description>
+      <guid>https://electron.guide/final-polish/renderer/</guid>
+      <description>The Final Polish before release The BrowserWindow is actually a chromium web browser!
+Passing data into BrowserWindow If you use React.js for your BrowserWindow javascript, you may need to pass data from the main process to the renderer process just in time for your initial state and props.
+You need to know the difference between these two events: dom-ready and ready-to-show.
+ ready-to-show event is part of BrowserWindow, and dom-ready event is part of webContents.</description>
     </item>
     
     <item>
