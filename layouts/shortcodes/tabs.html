@@ -1,28 +1,27 @@
-<nav>
-	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 
-		{{ $tabTotal := .Get "tabTotal" }}
-		{{ range $i, $sequence := (seq $tabTotal) }}
+<div class="tabs" id="nav-tab" role="tablist">
 
-		{{ $tabID := $.Get "tabID" }}
-		{{ $tabName := (print "tabName" $sequence) }}
-		{{ $tabHREF := (print "tab" $tabID $sequence) }}
+	{{ $tabTotal := .Get "tabTotal" }}
+	{{ range $i, $sequence := (seq $tabTotal) }}
 
-		{{ if eq $sequence 1 }}
+	{{ $tabID := $.Get "tabID" }}
+	{{ $tabName := (print "tabName" $sequence) }}
+	{{ $tabHREF := (print "tab" $tabID $sequence) }}
 
-		<a class="nav-item nav-link active" id="nav-{{ $tabID }}" data-toggle="tab" href="#{{ $tabHREF | urlize }}" role="tab"
-		   aria-controls="nav-home" aria-selected="true">{{ $.Get $tabName }}</a>
+	{{ if eq $sequence 1 }}
 
-		{{ else }}
+	<a class="tab-link active" id="nav-{{ $tabHREF }}" data-toggle="tab" href="#{{ $tabHREF | urlize }}" onclick="openTab(event, {{ $tabHREF }})" role="tab"
+		aria-controls="nav-home" aria-selected="true">{{ $.Get $tabName }}</a>
 
-		<a class="nav-item nav-link" id="nav-{{ $tabID }}" data-toggle="tab" href="#{{ $tabHREF | urlize }}" role="tab"
-		   aria-controls="nav-home" aria-selected="false">{{ $.Get $tabName }}</a>
+	{{ else }}
 
-		{{ end }}
-		{{ end }}
+	<a class="tab-link" id="nav-{{ $tabHREF }}" data-toggle="tab" href="#{{ $tabHREF | urlize }}" onclick="openTab(event, {{ $tabHREF }})" role="tab"
+		aria-controls="nav-home" aria-selected="false">{{ $.Get $tabName }}</a>
 
-	</div>
-</nav>
+	{{ end }}
+	{{ end }}
+
+</div>
 
 <div class="tab-content" id="{{ $.Get "tabID" }}">
 

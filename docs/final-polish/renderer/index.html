@@ -66,8 +66,9 @@
                 </div>
                 
                 <ul class="doc-sidebar-list">
-                    
+                  
                 </ul>
+             
             </div>
         </nav>
     </div>
@@ -145,7 +146,7 @@
 <p>A user can drag a file into a BrowserWindow. The BrowserWindow will then display the file.
 You can disable it by using <a href="https://github.com/ecrmnn/electron-disable-file-drop">https://github.com/ecrmnn/electron-disable-file-drop</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron-disable-file-drop&#39;</span><span class="p">);</span> <span class="c1">// In renderer process
-</span><span class="c1"></span></code></pre></div>
+</span></code></pre></div>
 <h3 id="disable-dragging-and-user-selections"><strong>Disable Dragging and User Selections</strong></h3>
 
 <p>Users can drag certain elements inside the Body. They can also &ldquo;select&rdquo; content on the window (to cut/copy). True native applications don&rsquo;t exhibit this behavior.</p>
@@ -295,10 +296,7 @@ s.setAttribute('data-timestamp', +new Date());
                     "doc_expansion": "none"
                 },
                 "search": {
-                    
-                    
                     "route": "/js/lunr.json"
-                    
                 },
                 "favicon": "/favicon.ico",
                 "google_analytics": "UA-141764204-1"
@@ -309,13 +307,12 @@ s.setAttribute('data-timestamp', +new Date());
   
       
       <script src="/js/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-      
       <script src="/js/lunr.js"></script>
       <script src="/js/search.js"></script>
   
       
       <script src="/js/doc.js"></script>
-  
+      <script src="/js/tab.js"></script>
       
 
       <script type="text/javascript">
