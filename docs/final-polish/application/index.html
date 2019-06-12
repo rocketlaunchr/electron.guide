@@ -135,7 +135,7 @@
 
 <p>You can intercept it and replace the error message with a prettier window:</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">process.on(<span style="color:#c30">&#39;uncaughtException&#39;</span>, error =&gt; {
-	<span style="color:#09f;font-style:italic">// Replace below with displaying a prettier window
+	<span style="color:#09f;font-style:italic">// Replace code below to display a prettier window
 </span><span style="color:#09f;font-style:italic"></span>	console.error(<span style="color:#c30">&#39;Exception:&#39;</span>, error); 
 	process.exit(<span style="color:#f60">1</span>);
 });

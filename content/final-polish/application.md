@@ -52,7 +52,7 @@ You can intercept it and replace the error message with a prettier window:
 
 ```javascript
 process.on('uncaughtException', error => {
-	// Replace below with displaying a prettier window
+	// Replace code below to display a prettier window
 	console.error('Exception:', error); 
 	process.exit(1);
 });
