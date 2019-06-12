@@ -17,7 +17,7 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/browser-window/</guid>
-      <description> BrowserWindow Windows    Windows 10 Windows 7              MacOS   </description>
+      <description> BrowserWindow Windows    Windows 10 Windows 7              macOS   </description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/context-menu/</guid>
-      <description> Context Menu Windows    Windows 10 Windows 7              MacOS   </description>
+      <description> Context Menu Windows    Windows 10 Windows 7              macOS   </description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@
       
       <guid>https://electron.guide/cross-platform/menu/</guid>
       <description>Menu Windows A Windows applications typically contain a menu bar at the top of the individual window.
-   Windows 10 Windows 7              MacOS MacOS uses a common menu bar at the screen’s top that the operating system and all applications share. When a particular window gets focus, the menu contents change based on the menu required by the window.</description>
+   Windows 10 Windows 7              macOS macOS uses a common menu bar at the screen’s top that the operating system and all applications share. When a particular window gets focus, the menu contents change based on the menu required by the window.</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/notifications/</guid>
-      <description>Notifications Windows    Windows 10 Windows 7       Basic      Basic        Notification with image      Notification with image       MacOS    Basic Notification with image              Extra Info  https://electronjs.</description>
+      <description>Notifications Windows    Windows 10 Windows 7       Basic      Basic        Notification with image      Notification with image       macOS    Basic Notification with image              Extra Info  https://electronjs.</description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/standard-dialogs/</guid>
-      <description> Standard Dialogs Windows    Windows 10 Windows 7       Open file      Open file        Save file      Save file       MacOS    Open Save              </description>
+      <description> Standard Dialogs Windows    Windows 10 Windows 7       Open file      Open file        Save file      Save file       macOS    Open Save              </description>
     </item>
     
     <item>
@@ -87,7 +87,7 @@ You need to know the difference between these two events: dom-ready and ready-to
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/tray/</guid>
-      <description>Tray Windows    Windows 10 Windows 7               Tray menu      Tray menu        Balloon      Balloon       MacOS   Known Bugs  Once you create a tray icon, attempting to destroy it will crash the application.</description>
+      <description>Tray Windows    Windows 10 Windows 7               Tray menu      Tray menu        Balloon      Balloon       macOS   Known Bugs  Once you create a tray icon, attempting to destroy it will crash the application.</description>
     </item>
     
   </channel>

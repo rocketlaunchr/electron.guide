@@ -114,7 +114,7 @@ win.once(<span style="color:#c30">&#39;ready-to-show&#39;</span>, () =&gt; {
 })
 
 win.webContents.on(<span style="color:#c30">&#39;dom-ready&#39;</span>, (event) =&gt; {
-    win.WebContents.send(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, Data1, Data2, Data3)
+    win.webContents.send(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, Data1, Data2, Data3)
 })
 </code></pre></div>
 <p>See:</p>
@@ -126,9 +126,11 @@ win.webContents.on(<span style="color:#c30">&#39;dom-ready&#39;</span>, (event) 
 
 <h3 id="prevent-browserwindow-refreshes"><strong>Prevent BrowserWindow refreshes</strong></h3>
 
-<p>A user can press <code>Cmd+R</code> (on MacOS) or <code>F5</code> (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don&rsquo;t exhibit this behaviour.</p>
+<p>A user can press <code>Cmd+R</code> (on macOS) or <code>F5</code> (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don&rsquo;t exhibit this behaviour.</p>
 
-<p>One way to solve this is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.</p>
+<p>The recommended solution is to replace the default menu to disable this behaviour.</p>
+
+<p>For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> { globalShortcut } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
 
 win.on(<span style="color:#c30">&#39;focus&#39;</span>, (event) =&gt; {
