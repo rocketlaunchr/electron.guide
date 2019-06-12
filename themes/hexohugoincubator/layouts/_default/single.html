@@ -35,7 +35,7 @@
 <div class="dc-page">
 	<div id="disqus_thread"></div>
 
-  <div style="text-align: center;"> &copy; 2019 <a target="_blank" href="https://rocketlaunchr.cloud">rocketlaunchr.cloud</a>. All rights reserved.</div>
+  <div style="text-align: center;"> &copy; {{ .Site.Params.CopyrightYear }} <a target="_blank" href="{{ .Site.Params.CopyrightLink }}">{{ .Site.Params.CopyrightHolder }}</a>. All rights reserved.</div>
 </div>
 <script>
 
@@ -50,7 +50,7 @@ this.page.identifier = {{ .RelPermalink }}; // Replace PAGE_IDENTIFIER with your
 
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
-s.src = 'https://electron-guide.disqus.com/embed.js';
+s.src = 'https://{{ .Site.Params.DisqusID }}.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();

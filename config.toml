@@ -19,3 +19,7 @@ disableKinds = ["taxonomy", "taxonomyTerm", "section"]
 
 [params]
 	adSense = "ca-pub-5444136912913928"
+	copyrightYear = "2019"
+	copyrightHolder = "rocketlaunchr.cloud"
+	copyrightLink = "https://rocketlaunchr.cloud"
+	disqusID= "electron-guide"

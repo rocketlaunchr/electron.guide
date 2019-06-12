@@ -7,9 +7,9 @@ exclude_search: false
 
 # The Final Polish before release
 
-### Prevent a second instance of your application from running
+### **Prevent a second instance of your application from running**
 
-Usually you only want one instance of your application running at any moment.
+Usually, you only want one instance of your application running at any moment.
 
 ```javascript
 const { app } = require('electron')
@@ -24,22 +24,26 @@ if (!gotTheLock) {
 See: https://electronjs.org/docs/api/app#apprequestsingleinstancelock
 
 
-### Store configuration data
+### **Store configuration data**
 
-Users expect any customizations to their settings to persist on app reload (eg. computer restart).
+Users expect any customizations to their settings to persist on app reload (e.g. computer restart).
 
 You can use [electron-store](https://github.com/sindresorhus/electron-store) to save data.
 
-For security sensitive data such as OAuth tokens, you **MUST** store them in the "password vault" provided by the operating system.
+For sensitive security data such as OAuth tokens, you **MUST** store them in the "password vault" provided by the operating system.
 
 You can use [node-keytar](https://github.com/atom/node-keytar) for this.
 
-A nice blog post with [instructions is here](https://medium.com/cameron-nokes/how-to-securely-store-sensitive-information-in-electron-with-node-keytar-51af99f1cfc4).
+An excellent blog post with [instructions is here](https://medium.com/cameron-nokes/how-to-securely-store-sensitive-information-in-electron-with-node-keytar-51af99f1cfc4).
 
+Using Keytar requires the library to be "rebuilt" for each OS/Electron version you want to deploy to:
 
-### Catch Fatal Exceptions
+* https://github.com/electron/electron-rebuild
+* https://github.com/electron/electron/blob/master/docs/tutorial/using-native-node-modules.md
 
-Sometimes Electron Applications mysteriously crash. Othertimes, they display a hideous error message:
+### **Catch Fatal Exceptions**
+
+Sometimes Electron Applications mysteriously crash. Other times, they display a hideous error message:
 
 {{< figure src="/static/images/final-polish/application/exception.png" >}}
 
