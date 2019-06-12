@@ -15,7 +15,7 @@ Windows 10    | Windows 7
 {{< figure src="/static/images/standard-dialogs/win10_open.png" title="Open file" >}} | {{< figure src="/static/images/standard-dialogs/win7_open.png" title="Open file" >}}
 {{< figure src="/static/images/standard-dialogs/win10_save.png" title="Save file">}} | {{< figure src="/static/images/standard-dialogs/win7_save.png" title="Save file" >}}
 
-### MacOS
+### macOS
 
 
    Open  |  Save
