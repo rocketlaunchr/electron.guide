@@ -66,8 +66,9 @@
                 </div>
                 
                 <ul class="doc-sidebar-list">
-                    
+                  
                 </ul>
+             
             </div>
         </nav>
     </div>
@@ -163,42 +164,6 @@
 </tbody>
 </table>
 
-<h2 id="sample-code">Sample Code</h2>
-
-<h3 id="basic-notification">Basic Notification</h3>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">notification</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Basic Notification&#39;</span><span class="p">,</span>
-  <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;Short message part&#39;</span>
-<span class="p">}</span>
-
-<span class="k">const</span> <span class="nx">notificationButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;basic-noti&#39;</span><span class="p">)</span>
-
-<span class="nx">notificationButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="nx">myNotification</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Notification</span><span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nx">notification</span><span class="p">)</span>
-
-  <span class="nx">myNotification</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Notification clicked&#39;</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-</code></pre></div>
-<h3 id="notification-with-image">Notification with image</h3>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
-
-<span class="k">const</span> <span class="nx">notification</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Notification with image&#39;</span><span class="p">,</span>
-  <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;Short message plus a custom image&#39;</span><span class="p">,</span>
-  <span class="nx">icon</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;../../../assets/img/programming.png&#39;</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="k">const</span> <span class="nx">notificationButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;advanced-noti&#39;</span><span class="p">)</span>
-
-<span class="nx">notificationButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="nx">myNotification</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Notification</span><span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nx">notification</span><span class="p">)</span>
-
-  <span class="nx">myNotification</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Notification clicked&#39;</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-</code></pre></div>
 <h2 id="extra-info">Extra Info</h2>
 
 <ul>
@@ -324,10 +289,7 @@ s.setAttribute('data-timestamp', +new Date());
                     "doc_expansion": "none"
                 },
                 "search": {
-                    
-                    
                     "route": "/js/lunr.json"
-                    
                 },
                 "favicon": "/favicon.ico",
                 "google_analytics": "UA-141764204-1"
@@ -338,7 +300,6 @@ s.setAttribute('data-timestamp', +new Date());
   
       
       <script src="/js/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-      
       <script src="/js/lunr.js"></script>
       <script src="/js/search.js"></script>
   

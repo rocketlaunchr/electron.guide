@@ -66,8 +66,9 @@
                 </div>
                 
                 <ul class="doc-sidebar-list">
-                    
+                  
                 </ul>
+             
             </div>
         </nav>
     </div>
@@ -127,43 +128,6 @@
 </figure>
 
 
-<h2 id="sample-code">Sample Code</h2>
-
-<h3 id="main-process">Main Process</h3>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="p">{</span>
-  <span class="nx">BrowserWindow</span><span class="p">,</span>
-  <span class="nx">Menu</span><span class="p">,</span>
-  <span class="nx">MenuItem</span><span class="p">,</span>
-  <span class="nx">ipcMain</span><span class="p">,</span>
-  <span class="nx">app</span>
-<span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
-
-<span class="k">const</span> <span class="nx">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Menu</span><span class="p">()</span>
-<span class="nx">menu</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="k">new</span> <span class="nx">MenuItem</span><span class="p">({</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span> <span class="p">}))</span>
-<span class="nx">menu</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="k">new</span> <span class="nx">MenuItem</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;separator&#39;</span> <span class="p">}))</span>
-<span class="nx">menu</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="k">new</span> <span class="nx">MenuItem</span><span class="p">({</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Electron&#39;</span><span class="p">,</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;checkbox&#39;</span><span class="p">,</span> <span class="nx">checked</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}))</span>
-
-<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;browser-window-created&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">win</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">win</span><span class="p">.</span><span class="nx">webContents</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;context-menu&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">menu</span><span class="p">.</span><span class="nx">popup</span><span class="p">(</span><span class="nx">win</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span>
-  <span class="p">})</span>
-<span class="p">})</span>
-
-<span class="nx">ipcMain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;show-context-menu&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="nx">win</span> <span class="o">=</span> <span class="nx">BrowserWindow</span><span class="p">.</span><span class="nx">fromWebContents</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">sender</span><span class="p">)</span>
-  <span class="nx">menu</span><span class="p">.</span><span class="nx">popup</span><span class="p">(</span><span class="nx">win</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div>
-<h3 id="renderer-process">Renderer Process</h3>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="p">{</span><span class="nx">ipcRenderer</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
-
-<span class="c1">// Tell main process to show the menu when demo button is clicked
-</span><span class="c1"></span><span class="k">const</span> <span class="nx">contextMenuBtn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;context-menu&#39;</span><span class="p">)</span>
-
-<span class="nx">contextMenuBtn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">ipcRenderer</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;show-context-menu&#39;</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div>
     <div id="react-support-footer-root">
       
     </div>
@@ -282,10 +246,7 @@ s.setAttribute('data-timestamp', +new Date());
                     "doc_expansion": "none"
                 },
                 "search": {
-                    
-                    
                     "route": "/js/lunr.json"
-                    
                 },
                 "favicon": "/favicon.ico",
                 "google_analytics": "UA-141764204-1"
@@ -296,7 +257,6 @@ s.setAttribute('data-timestamp', +new Date());
   
       
       <script src="/js/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-      
       <script src="/js/lunr.js"></script>
       <script src="/js/search.js"></script>
   

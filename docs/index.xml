@@ -17,7 +17,7 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/browser-window/</guid>
-      <description> BrowserWindow Windows    Windows 10 Windows 7              MacOS   Sample Code const {BrowserWindow} = require(&amp;#39;electron&amp;#39;).remote const path = require(&amp;#39;path&amp;#39;) const newWindowBtn = document.getElementById(&amp;#39;new-window&amp;#39;) newWindowBtn.addEventListener(&amp;#39;click&amp;#39;, (event) =&amp;gt; { const modalPath = path.join(&amp;#39;file://&amp;#39;, __dirname, &amp;#39;../../sections/windows/modal.html&amp;#39;) let win = new BrowserWindow({ width: 400, height: 320 }) win.on(&amp;#39;close&amp;#39;, () =&amp;gt; { win = null }) win.loadURL(modalPath) win.show() }) </description>
+      <description> BrowserWindow Windows    Windows 10 Windows 7              MacOS   </description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/context-menu/</guid>
-      <description>Context Menu Windows    Windows 10 Windows 7              MacOS   Sample Code Main Process const { BrowserWindow, Menu, MenuItem, ipcMain, app } = require(&amp;#39;electron&amp;#39;) const menu = new Menu() menu.append(new MenuItem({ label: &amp;#39;Hello&amp;#39; })) menu.append(new MenuItem({ type: &amp;#39;separator&amp;#39; })) menu.append(new MenuItem({ label: &amp;#39;Electron&amp;#39;, type: &amp;#39;checkbox&amp;#39;, checked: true })) app.on(&amp;#39;browser-window-created&amp;#39;, (event, win) =&amp;gt; { win.</description>
+      <description> Context Menu Windows    Windows 10 Windows 7              MacOS   </description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/notifications/</guid>
-      <description>Notifications Windows    Windows 10 Windows 7       Basic      Basic        Notification with image      Notification with image       MacOS    Basic Notification with image              Sample Code Basic Notification const notification = { title: &amp;#39;Basic Notification&amp;#39;, body: &amp;#39;Short message part&amp;#39; } const notificationButton = document.</description>
+      <description>Notifications Windows    Windows 10 Windows 7       Basic      Basic        Notification with image      Notification with image       MacOS    Basic Notification with image              Extra Info  https://electronjs.</description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/standard-dialogs/</guid>
-      <description>Standard Dialogs Windows    Windows 10 Windows 7       Open file      Open file        Save file      Save file       MacOS    Open Save              Sample Code Main Process const {ipcMain, dialog} = require(&amp;#39;electron&amp;#39;) ipcMain.</description>
+      <description> Standard Dialogs Windows    Windows 10 Windows 7       Open file      Open file        Save file      Save file       MacOS    Open Save              </description>
     </item>
     
     <item>
@@ -87,7 +87,7 @@ You need to know the difference between these two events: dom-ready and ready-to
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/tray/</guid>
-      <description>Tray Windows    Windows 10 Windows 7               Tray menu      Tray menu        Balloon      Balloon       MacOS   Sample Code Main Process const path = require(&amp;#39;path&amp;#39;) const {ipcMain, app, Menu, Tray} = require(&amp;#39;electron&amp;#39;) let appIcon = null ipcMain.</description>
+      <description>Tray Windows    Windows 10 Windows 7               Tray menu      Tray menu        Balloon      Balloon       MacOS   Known Bugs  Once you create a tray icon, attempting to destroy it will crash the application.</description>
     </item>
     
   </channel>
