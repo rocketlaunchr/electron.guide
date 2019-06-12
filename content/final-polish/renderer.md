@@ -94,7 +94,7 @@ Add this attribute and class to the Body and various HTML elements:
 <body draggable="false" class="noselect">
 ```
 
-### **Hide Dev Tools**
+### **Hide DevTools**
 
 The user can easily open up the BrowserWindow DevTools and peek inside and modify your variables. This is very dangerous from a security perspective.
 
