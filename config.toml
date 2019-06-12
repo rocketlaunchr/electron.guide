@@ -6,7 +6,7 @@ theme = "hexohugoincubator"
 staticDir = ["static"]
 publishDir = "docs"
 pygmentsCodeFences = true
-pygmentsUseClasses = true
+pygmentsStyle = "manni" 
 author = "rocketlaunchr.cloud"
 
 disableKinds = ["taxonomy", "taxonomyTerm", "section"]
