@@ -21,49 +21,6 @@ Basic    | Notification with image
 --------|------
 {{< figure src="/static/images/notifications/mac_basic.gif" >}}  | {{< figure src="/static/images/notifications/mac_image.gif" >}}
 
-
-## Sample Code
-
-### Basic Notification
-
-```javascript
-const notification = {
-  title: 'Basic Notification',
-  body: 'Short message part'
-}
-
-const notificationButton = document.getElementById('basic-noti')
-
-notificationButton.addEventListener('click', () => {
-  const myNotification = new window.Notification(notification.title, notification)
-
-  myNotification.onclick = () => {
-    console.log('Notification clicked')
-  }
-})
-```
-
-### Notification with image
-
-```javascript
-const path = require('path')
-
-const notification = {
-  title: 'Notification with image',
-  body: 'Short message plus a custom image',
-  icon: path.join(__dirname, '../../../assets/img/programming.png')
-}
-const notificationButton = document.getElementById('advanced-noti')
-
-notificationButton.addEventListener('click', () => {
-  const myNotification = new window.Notification(notification.title, notification)
-
-  myNotification.onclick = () => {
-    console.log('Notification clicked')
-  }
-})
-```
-
 ## Extra Info
 
 * https://electronjs.org/docs/tutorial/notifications (HTML5 Renderer Process)
