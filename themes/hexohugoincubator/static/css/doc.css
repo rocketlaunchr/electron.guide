@@ -3899,3 +3899,73 @@ body {
 
 .doc-navbar__logo__text {
   text-transform: uppercase; }
+
+
+    /** Custom Design **/
+  /*----- Tabs -----*/
+.tabs {
+	width:100%;
+  display:inline-block;
+  background-color: #fff;
+}
+
+/*----- Tab Links -----*/
+/* Clearfix */
+	.tabs:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+
+.tabs a {
+	margin:0px 5px;
+	float:left;
+	list-style:none;
+}
+
+.tabs a {
+	padding:9px 15px;
+	display:inline-block;
+	border-radius:3px 3px 0px 0px;
+	background:#c6cec873;
+	font-size:16px;
+	font-weight:600;
+  color: #fa7031;
+	transition:all linear 0.15s;
+}
+
+.tabs a:hover {
+	background:#aaafb3d6;
+	text-decoration:none;
+}
+
+.tabs a.active, .tabs a.hover{
+	background:#b9b3b3d4;
+	color:#fa7031;
+}
+
+/*----- Content of Tabs -----*/
+.tab-content {
+	padding:21px;
+	border-radius:3px;
+	box-shadow: -2px 1px 7px rgba(43, 40, 36, 0.39);
+	background:#fff;
+}
+
+.tab-pane {
+	display:none;
+}
+
+.tab-pane.active {
+	display:block;
+}
+
+.tab-content .tab-pane {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
