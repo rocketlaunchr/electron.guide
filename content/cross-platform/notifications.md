@@ -15,7 +15,7 @@ Windows 10    | Windows 7
 {{< figure src="/static/images/notifications/win10_basic.png" title="Basic">}} | {{< figure src="/static/images/notifications/win7_basic.png" title="Basic" >}}
 {{< figure src="/static/images/notifications/win10_image.png" title="Notification with image" >}} | {{< figure src="/static/images/notifications/win7_image.png" title="Notification with image" >}}
 
-### MacOS
+### macOS
 
 Basic    | Notification with image
 --------|------

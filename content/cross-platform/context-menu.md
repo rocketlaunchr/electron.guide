@@ -14,6 +14,6 @@ Windows 10    | Windows 7
 --------|------
 {{< figure src="/static/images/context-menu/win10_context.png" >}} | {{< figure src="/static/images/context-menu/win7_context.png" >}}
 
-### MacOS
+### macOS
 
 {{< figure src="/static/images/context-menu/mac_context.png" >}}
