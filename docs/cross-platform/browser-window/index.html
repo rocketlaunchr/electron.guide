@@ -179,96 +179,122 @@ s.setAttribute('data-timestamp', +new Date());
 
 <script>
 
-    window.__INITIAL_STATE__ = {
-        "page": {
-            "title": "Index",
-            "support": false,
-            "path": "/"
-        },
-        "data": {
-            "navigation": {
-                "logo": {
-                    "text": "electron.guide",
-                    "type": "link",
-                    "path": "/"
-                },
-                "main": [
-                    {
-                        "text": "Cross Platform",
-                        "type": "label",
-                    },
-                    {
-                        "text": "BrowserWindow",
-                        "type": "link",
-                        "path": "/cross-platform/browser-window"
-                    },
-                    {
-                        "text": "Context Menu",
-                        "type": "link",
-                        "path": "/cross-platform/context-menu"
-                    },
-                    {
-                        "text": "Menu",
-                        "type": "link",
-                        "path": "/cross-platform/menu"
-                    },
-                    {
-                        "text": "Notifications",
-                        "type": "link",
-                        "path": "/cross-platform/notifications"
-                    },
-                    {
-                        "text": "Standard Dialogs",
-                        "type": "link",
-                        "path": "/cross-platform/standard-dialogs"
-                    },
-                    {
-                        "text": "Tray",
-                        "type": "link",
-                        "path": "/cross-platform/tray"
-                    },
-                    {
-                        "text": "The Final Polish",
-                        "type": "label",
-                    },
-                    {
-                        "text": "Application",
-                        "type": "link",
-                        "path": "/final-polish/application"
-                    },
-                    {
-                        "text": "Renderer",
-                        "type": "link",
-                        "path": "/final-polish/renderer"
-                    }
-                ]
-            }
-        },
-        "config": {
-            "timezone": "UTC",
-            "root": "/",
-            
-            
-            "theme_config": {
-                "swagger_ui": {
-                    "version": 2,
-                    "permalinks": true,
-                    "api_explorer": true,
-                    "download": "Download specification",
-                    "show_extensions": false,
-                    "deep_linking": true,
-                    "display_operation_id": false,
-                    "doc_expansion": "none"
-                },
-                "search": {
-                    "route": "/js/lunr.json"
-                },
-                "favicon": "/favicon.ico",
-                "google_analytics": "UA-141764204-1"
-            }
-        }
-    }
+  window.__INITIAL_STATE__ = {
+      "page": {
+          "title": "Index",
+          "support": false,
+          "path": "/"
+      },
+      "data": {
+          "navigation": {
+              "logo": {
+                  "text": "electron.guide",
+                  "type": "link",
+                  "path": "/"
+              },
+              "main": [
+                  {
+                      "text": "Cross Platform",
+                      "type": "label",
+                  },
+                  {
+                      "text": "BrowserWindow",
+                      "type": "link",
+                      "path": "/cross-platform/browser-window"
+                  },
+                  {
+                      "text": "Context Menu",
+                      "type": "link",
+                      "path": "/cross-platform/context-menu"
+                  },
+                  {
+                      "text": "Menu",
+                      "type": "link",
+                      "path": "/cross-platform/menu"
+                  },
+                  {
+                      "text": "Notifications",
+                      "type": "link",
+                      "path": "/cross-platform/notifications"
+                  },
+                  {
+                      "text": "Standard Dialogs",
+                      "type": "link",
+                      "path": "/cross-platform/standard-dialogs"
+                  },
+                  {
+                      "text": "Tray",
+                      "type": "link",
+                      "path": "/cross-platform/tray"
+                  },
+                  {
+                      "text": "Awesome Electron",
+                      "type": "label",
+                  },
+                  {
+                      "text": "Apps",
+                      "type": "link",
+                      "children": [
+                          {
+                              "text": "XXX",
+                              "type": "link",
+                              "children": [
+                                  {
+                                    "text": "Tray",
+                                    "type": "link",
+                                    "path": ""
+                                  }
+                              ]
+                          },
+                          {
+                              "text": "Boilerplates",
+                              "type": "link",
+                          }
+                      ]
+                  },
+                  {
+                      "text": "The Final Polish",
+                      "type": "label",
+                  },
+                  {
+                      "text": "Application",
+                      "type": "link",
+                      "path": "/final-polish/application"
+                  },
+                  {
+                      "text": "Renderer",
+                      "type": "link",
+                      "path": "/final-polish/renderer"
+                  }
+              ]
+          }
+      },
+      "config": {
+          "timezone": "UTC",
+          "root": "/",
+          
+          
+          "theme_config": {
+              "swagger_ui": {
+                  "version": 2,
+                  "permalinks": true,
+                  "api_explorer": true,
+                  "download": "Download specification",
+                  "show_extensions": false,
+                  "deep_linking": true,
+                  "display_operation_id": false,
+                  "doc_expansion": "none"
+              },
+              "search": {
+                  "route": "/js/lunr.json"
+              },
+              "favicon": "/favicon.ico",
+              "google_analytics": "UA-141764204-1"
+          }
+      }
+  }
 </script>
+
   
       
       <script src="/js/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
@@ -278,6 +304,7 @@ s.setAttribute('data-timestamp', +new Date());
       
       <script src="/js/doc.js"></script>
       <script src="/js/tab.js"></script>
+      <script src="/js/script.js"></script>
       
 
       <script type="text/javascript">
