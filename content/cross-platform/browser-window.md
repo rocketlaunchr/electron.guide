@@ -14,24 +14,6 @@ Windows 10    | Windows 7
 --------|------
 {{< figure src="/static/images/browser-window/win10_window.png" >}} | {{< figure src="/static/images/browser-window/win7_window.png" >}}
 
-### MacOS
+### macOS
 
 {{< figure src="/static/images/browser-window/mac_window.png" >}}
-
-## Sample Code
-
-```javascript
-const {BrowserWindow} = require('electron').remote
-const path = require('path')
-
-const newWindowBtn = document.getElementById('new-window')
-
-newWindowBtn.addEventListener('click', (event) => {
-  const modalPath = path.join('file://', __dirname, '../../sections/windows/modal.html')
-  let win = new BrowserWindow({ width: 400, height: 320 })
-
-  win.on('close', () => { win = null })
-  win.loadURL(modalPath)
-  win.show()
-})
-```

@@ -30,7 +30,7 @@ win.once('ready-to-show', () => {
 })
 
 win.webContents.on('dom-ready', (event) => {
-    win.WebContents.send("<channel>", Data1, Data2, Data3)
+    win.webContents.send("<channel>", Data1, Data2, Data3)
 })
 ``` 
 
@@ -42,9 +42,11 @@ See:
 
 ### **Prevent BrowserWindow refreshes**
 
-A user can press `Cmd+R` (on MacOS) or `F5` (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don't exhibit this behaviour.
+A user can press `Cmd+R` (on macOS) or `F5` (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don't exhibit this behaviour.
 
-One way to solve this is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.
+The recommended solution is to replace the default menu to disable this behaviour.
+
+For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.
 
 ```javascript
 const { globalShortcut } = require('electron')
@@ -94,7 +96,7 @@ Add this attribute and class to the Body and various HTML elements:
 <body draggable="false" class="noselect">
 ```
 
-### **Hide Dev Tools**
+### **Hide DevTools**
 
 The user can easily open up the BrowserWindow DevTools and peek inside and modify your variables. This is very dangerous from a security perspective.
 

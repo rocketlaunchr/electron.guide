@@ -105,17 +105,17 @@
 <li>In the BrowserWindow event life-cycle, <code>dom-ready</code> always comes <strong>before</strong> <code>ready-to-show</code>.</li>
 <li>You can inject data like this:</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="p">{</span> <span class="nx">BrowserWindow</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> { BrowserWindow } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
 
-<span class="kd">let</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BrowserWindow</span><span class="p">({</span> <span class="nx">show</span><span class="o">:</span> <span class="kc">false</span> <span class="p">})</span>
+<span style="color:#069;font-weight:bold">let</span> win <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> BrowserWindow({ show<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">false</span> })
 
-<span class="nx">win</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;ready-to-show&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">win</span><span class="p">.</span><span class="nx">show</span><span class="p">()</span>
-<span class="p">})</span>
+win.once(<span style="color:#c30">&#39;ready-to-show&#39;</span>, () =&gt; {
+    win.show()
+})
 
-<span class="nx">win</span><span class="p">.</span><span class="nx">webContents</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;dom-ready&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">win</span><span class="p">.</span><span class="nx">WebContents</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&#34;&lt;channel&gt;&#34;</span><span class="p">,</span> <span class="nx">Data1</span><span class="p">,</span> <span class="nx">Data2</span><span class="p">,</span> <span class="nx">Data3</span><span class="p">)</span>
-<span class="p">})</span>
+win.webContents.on(<span style="color:#c30">&#39;dom-ready&#39;</span>, (event) =&gt; {
+    win.webContents.send(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, Data1, Data2, Data3)
+})
 </code></pre></div>
 <p>See:</p>
 
@@ -126,18 +126,20 @@
 
 <h3 id="prevent-browserwindow-refreshes"><strong>Prevent BrowserWindow refreshes</strong></h3>
 
-<p>A user can press <code>Cmd+R</code> (on MacOS) or <code>F5</code> (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don&rsquo;t exhibit this behaviour.</p>
+<p>A user can press <code>Cmd+R</code> (on macOS) or <code>F5</code> (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don&rsquo;t exhibit this behaviour.</p>
 
-<p>One way to solve this is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.</p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="p">{</span> <span class="nx">globalShortcut</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
+<p>The recommended solution is to replace the default menu to disable this behaviour.</p>
 
-<span class="nx">win</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;focus&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">globalShortcut</span><span class="p">.</span><span class="nx">registerAll</span><span class="p">([</span><span class="s1">&#39;CommandOrControl+R&#39;</span><span class="p">,</span><span class="s1">&#39;F5&#39;</span><span class="p">],</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{})</span>
-<span class="p">})</span>
+<p>For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> { globalShortcut } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
 
-<span class="nx">win</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;blur&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">globalShortcut</span><span class="p">.</span><span class="nx">unregisterAll</span><span class="p">()</span>
-<span class="p">})</span>
+win.on(<span style="color:#c30">&#39;focus&#39;</span>, (event) =&gt; {
+    globalShortcut.registerAll([<span style="color:#c30">&#39;CommandOrControl+R&#39;</span>,<span style="color:#c30">&#39;F5&#39;</span>], () =&gt; {})
+})
+
+win.on(<span style="color:#c30">&#39;blur&#39;</span>, (event) =&gt; {
+    globalShortcut.unregisterAll()
+})
 </code></pre></div>
 <p>See: <a href="https://electronjs.org/docs/api/global-shortcut">https://electronjs.org/docs/api/global-shortcut</a></p>
 
@@ -145,34 +147,34 @@
 
 <p>A user can drag a file into a BrowserWindow. The BrowserWindow will then display the file.
 You can disable it by using <a href="https://github.com/ecrmnn/electron-disable-file-drop">https://github.com/ecrmnn/electron-disable-file-drop</a>.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron-disable-file-drop&#39;</span><span class="p">);</span> <span class="c1">// In renderer process
-</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">require(<span style="color:#c30">&#39;electron-disable-file-drop&#39;</span>); <span style="color:#09f;font-style:italic">// In renderer process
+</span><span style="color:#09f;font-style:italic"></span></code></pre></div>
 <h3 id="disable-dragging-and-user-selections"><strong>Disable Dragging and User Selections</strong></h3>
 
 <p>Users can drag certain elements inside the Body. They can also &ldquo;select&rdquo; content on the window (to cut/copy). True native applications don&rsquo;t exhibit this behavior.</p>
 
 <p>Add this CSS:</p>
-<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">noselect</span> <span class="p">{</span>
-  <span class="kp">-webkit-</span><span class="n">touch-callout</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* iOS Safari */</span>
-    <span class="kp">-webkit-</span><span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* Safari */</span>
-     <span class="kp">-khtml-</span><span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* Konqueror HTML */</span>
-       <span class="kp">-moz-</span><span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* Firefox */</span>
-        <span class="kp">-ms-</span><span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* Internet Explorer/Edge */</span>
-            <span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* Non-prefixed version, currently
-</span><span class="c">                                  supported by Chrome and Opera */</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#0a8;font-weight:bold">noselect</span> {
+  <span style="color:#069">-webkit-</span>touch-callout: <span style="color:#069;font-weight:bold">none</span>; <span style="color:#09f;font-style:italic">/* iOS Safari */</span>
+    <span style="color:#069">-webkit-</span><span style="color:#069;font-weight:bold">user-select</span>: <span style="color:#069;font-weight:bold">none</span>; <span style="color:#09f;font-style:italic">/* Safari */</span>
+     <span style="color:#069">-khtml-</span><span style="color:#069;font-weight:bold">user-select</span>: <span style="color:#069;font-weight:bold">none</span>; <span style="color:#09f;font-style:italic">/* Konqueror HTML */</span>
+       <span style="color:#069">-moz-</span><span style="color:#069;font-weight:bold">user-select</span>: <span style="color:#069;font-weight:bold">none</span>; <span style="color:#09f;font-style:italic">/* Firefox */</span>
+        <span style="color:#069">-ms-</span><span style="color:#069;font-weight:bold">user-select</span>: <span style="color:#069;font-weight:bold">none</span>; <span style="color:#09f;font-style:italic">/* Internet Explorer/Edge */</span>
+            <span style="color:#069;font-weight:bold">user-select</span>: <span style="color:#069;font-weight:bold">none</span>; <span style="color:#09f;font-style:italic">/* Non-prefixed version, currently
+</span><span style="color:#09f;font-style:italic">                                  supported by Chrome and Opera */</span>
+}</code></pre></div>
 <p>Add this attribute and class to the Body and various HTML elements:</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">body</span> <span class="na">draggable</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;noselect&#34;</span><span class="p">&gt;</span></code></pre></div>
-<h3 id="hide-dev-tools"><strong>Hide Dev Tools</strong></h3>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">body</span> <span style="color:#309">draggable</span><span style="color:#555">=</span><span style="color:#c30">&#34;false&#34;</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;noselect&#34;</span>&gt;</code></pre></div>
+<h3 id="hide-devtools"><strong>Hide DevTools</strong></h3>
 
 <p>The user can easily open up the BrowserWindow DevTools and peek inside and modify your variables. This is very dangerous from a security perspective.</p>
 
 <p>The user can open the DevTools by keyboard shortcuts and passing command line arguments.</p>
 
 <p>Remember to disable it for Production release:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="p">{</span> <span class="nx">BrowserWindow</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#069;font-weight:bold">const</span> { BrowserWindow } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
 
-<span class="kd">let</span> <span class="nx">win</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BrowserWindow</span><span class="p">({</span> <span class="nx">webPreferences</span><span class="o">:</span> <span class="p">{</span><span class="nx">devTools</span><span class="o">:</span> <span class="kc">false</span><span class="p">}</span> <span class="p">})</span>
+<span style="color:#069;font-weight:bold">let</span> win <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> BrowserWindow({ webPreferences<span style="color:#555">:</span> {devTools<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">false</span>} })
 </code></pre></div>
 <p>See: <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions">https://github.com/electron/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions</a></p>
 
