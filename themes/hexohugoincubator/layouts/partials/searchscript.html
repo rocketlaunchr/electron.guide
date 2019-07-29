@@ -1,92 +1,229 @@
 <script>
 
-    window.__INITIAL_STATE__ = {
-        "page": {
-            "title": "Index",
-            "support": false,
-            "path": "/"
-        },
-        "data": {
-            "navigation": {
-                "logo": {
-                    "text": {{ .Site.Title }},
+  window.__INITIAL_STATE__ = {
+      "page": {
+          "title": "Index",
+          "support": false,
+          "path": "/"
+      },
+      "data": {
+          "navigation": {
+              "logo": {
+                  "text": {{ .Site.Title }},
+                  "type": "link",
+                  "path": "/"
+              },
+              "main": [
+                  {
+                      "text": "Cross Platform",
+                      "type": "label",
+                  },
+                  {
+                      "text": "BrowserWindow",
+                      "type": "link",
+                      "path": "/cross-platform/browser-window"
+                  },
+                  {
+                      "text": "Context Menu",
+                      "type": "link",
+                      "path": "/cross-platform/context-menu"
+                  },
+                  {
+                      "text": "Menu",
+                      "type": "link",
+                      "path": "/cross-platform/menu"
+                  },
+                  {
+                      "text": "Notifications",
+                      "type": "link",
+                      "path": "/cross-platform/notifications"
+                  },
+                  {
+                      "text": "Standard Dialogs",
+                      "type": "link",
+                      "path": "/cross-platform/standard-dialogs"
+                  },
+                  {
+                      "text": "Tray",
+                      "type": "link",
+                      "path": "/cross-platform/tray"
+                  },
+                  {
+                      "text": "Awesome Electron",
+                      "type": "label",
+                  },
+                  {
+                      "text": "Apps",
+                      "type": "link",
+                      "children": [
+                          {
+                              "text": "Open Source",
+                              "type": "link",
+                              "children": [
+                                  {
+                                    "text": "Beaker",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                                    "text": "Hyper",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                                    "text": "WebTorrent",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                                    "text": "Kap",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                                    "text": "Min",
+                                    "type": "link",
+                                    "path": ""
+                                  }
+                              ]
+                          },
+                          {
+                              "text": "Closed Source",
+                              "type": "link",
+                              "children": [
+                                {
+                                    "text": "Git-it",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                                    "text": "Caprine",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                                    "text": "Simplenote",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                                    "text": "nuTorrent",
+                                    "type": "link",
+                                    "path": ""
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  {
+                    "text": "Boilerplates",
                     "type": "link",
-                    "path": "/"
-                },
-                "main": [
-                    {
-                        "text": "Cross Platform",
-                        "type": "label",
+                    "children": [
+                          {
+                            "text": "electron-boilerplate",
+                            "type": "link",
+                            "path": ""
+                            },{
+                            "text": "generator-electron",
+                            "type": "link",
+                            "path": ""
+                            },{
+                            "text": "electron-boilerplate",
+                            "type": "link",
+                            "path": ""
+                            },{
+                            "text": "electron-react-boilerplate",
+                            "type": "link",
+                            "path": ""
+                            },{
+                            "text": "descjop",
+                            "type": "link",
+                            "path": ""
+                            }
+                     ]
+                  },
+                  {
+                    "text": "Tools",
+                    "type": "link",
+                    "children": [
+                        {
+                            "text": "For Electron",
+                            "type": "link",
+                            "children": [
+
+                            ]
+                        },{
+                            "text": "Using Electron",
+                            "type": "link",
+                            "children": [
+
+                            ]
+                        }
+                    ]
+                   },
+                   {
+                      "text": "Components",
+                      "type": "link",
+                      "children": [
+                          {
+                                    "text": "Beaker",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                            "text": "Photon",
+                            "type": "link",
+                            "path": ""
+                          },{
+                                    "text": "WebTorrent",
+                                    "type": "link",
+                                    "path": ""
+                                  },{
+                            "text": "React PhotonKit",
+                            "type": "link",
+                            "path": ""
+                          },{
+                            "text": "menubar",
+                            "type": "link",
+                            "path": ""
+                            },{
+                            "text": "cookies",
+                            "type": "link",
+                            "path": ""
+                          }
+                        ]
                     },
-                    {
-                        "text": "BrowserWindow",
-                        "type": "link",
-                        "path": "/cross-platform/browser-window"
-                    },
-                    {
-                        "text": "Context Menu",
-                        "type": "link",
-                        "path": "/cross-platform/context-menu"
-                    },
-                    {
-                        "text": "Menu",
-                        "type": "link",
-                        "path": "/cross-platform/menu"
-                    },
-                    {
-                        "text": "Notifications",
-                        "type": "link",
-                        "path": "/cross-platform/notifications"
-                    },
-                    {
-                        "text": "Standard Dialogs",
-                        "type": "link",
-                        "path": "/cross-platform/standard-dialogs"
-                    },
-                    {
-                        "text": "Tray",
-                        "type": "link",
-                        "path": "/cross-platform/tray"
-                    },
-                    {
-                        "text": "The Final Polish",
-                        "type": "label",
-                    },
-                    {
-                        "text": "Application",
-                        "type": "link",
-                        "path": "/final-polish/application"
-                    },
-                    {
-                        "text": "Renderer",
-                        "type": "link",
-                        "path": "/final-polish/renderer"
-                    }
-                ]
-            }
-        },
-        "config": {
-            "timezone": "UTC",
-            "root": "/",
-            // "time_format": "HH:mm:ss",
-            // "theme": "../node_modules/hexo-theme-doc",
-            "theme_config": {
-                "swagger_ui": {
-                    "version": 2,
-                    "permalinks": true,
-                    "api_explorer": true,
-                    "download": "Download specification",
-                    "show_extensions": false,
-                    "deep_linking": true,
-                    "display_operation_id": false,
-                    "doc_expansion": "none"
-                },
-                "search": {
-                    "route": "/js/lunr.json"
-                },
-                "favicon": "/favicon.ico",
-                "google_analytics": "{{ .Site.GoogleAnalytics }}"
-            }
-        }
-    }
+                  {
+                      "text": "The Final Polish",
+                      "type": "label",
+                  },
+                  {
+                      "text": "Application",
+                      "type": "link",
+                      "path": "/final-polish/application"
+                  },
+                  {
+                      "text": "Renderer",
+                      "type": "link",
+                      "path": "/final-polish/renderer"
+                  }
+              ]
+          }
+      },
+      "config": {
+          "timezone": "UTC",
+          "root": "/",
+          // "time_format": "HH:mm:ss",
+          // "theme": "../node_modules/hexo-theme-doc",
+          "theme_config": {
+              "swagger_ui": {
+                  "version": 2,
+                  "permalinks": true,
+                  "api_explorer": true,
+                  "download": "Download specification",
+                  "show_extensions": false,
+                  "deep_linking": true,
+                  "display_operation_id": false,
+                  "doc_expansion": "none"
+              },
+              "search": {
+                  "route": "/js/lunr.json"
+              },
+              "favicon": "/favicon.ico",
+              "google_analytics": "{{ .Site.GoogleAnalytics }}"
+          }
+      }
+  }
 </script>
