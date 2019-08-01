@@ -27,3 +27,9 @@ $(document).ready(function() {
     console.log("anchor open");
   });
 });
+
+$(document).ready(function() {
+  $("a span:contains(<strong>)").each(function() {
+    $(this).html( $(this).text() );
+  })
+});
