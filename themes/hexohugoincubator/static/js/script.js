@@ -28,6 +28,6 @@ $(document).ready(function() {
   });
 
   $("a span:contains(<strong>)").each(function() {
-    $(this).html( $(this).text() );
-  })
+    $(this).html($(this).text());
+  });
 });
