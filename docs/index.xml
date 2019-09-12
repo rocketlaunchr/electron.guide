@@ -6,10 +6,19 @@
     <description>Recent content on electron.guide</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://electron.guide/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BrowserWindow</title>
+      <link>https://electron.guide/electron-alert/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://electron.guide/electron-alert/</guid>
+      <description>    Installation </description>
+    </item>
     
     <item>
       <title>BrowserWindow</title>
