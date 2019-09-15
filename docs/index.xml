@@ -17,7 +17,9 @@
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/electron-alert/</guid>
-      <description>    Installation </description>
+      <description>ElectronAlert is a beautiful and developer-friendly alert for Electron applications. It is powered by SweetAlert2 and works directly from the main process.
+   Features  WithFrame and Frameless alerts that are visually stunning Toasts with timers Exception handling alert Sounds SweetAlert2-esque API*  Installation npm install electron-alert  Github https://github.com/rocketlaunchr/electron-alert
+Usage  See https://sweetalert2.github.io/#configuration and https://sweetalert2.github.io/#methods for further details. Not all methods are implemented as yet.</description>
     </item>
     
     <item>

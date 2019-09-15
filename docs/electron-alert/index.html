@@ -97,7 +97,296 @@
 
 </div>
 
+<p>ElectronAlert is a beautiful and developer-friendly alert for <a href="https://electronjs.org/">Electron</a> applications. It is powered by <a href="https://sweetalert2.github.io">SweetAlert2</a> and works directly from the main process.</p>
+
+<div align="center">
+<figure>
+    <img src="https://github.com/rocketlaunchr/electron-alert/raw/master/assets/example.gif#center" width="50%" height="50%"/> 
+</figure>
+
+</div>
+
+<h1 id="features">Features</h1>
+
+<ul>
+<li>WithFrame and Frameless alerts that are visually stunning</li>
+<li>Toasts with timers</li>
+<li>Exception handling alert</li>
+<li>Sounds</li>
+<li>SweetAlert2-esque API*</li>
+</ul>
+
 <h1 id="installation">Installation</h1>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">npm install electron<span style="color:#555">-</span>alert
+</code></pre></div>
+<h1 id="github">Github</h1>
+
+<p><a href="https://github.com/rocketlaunchr/electron-alert">https://github.com/rocketlaunchr/electron-alert</a></p>
+
+<h1 id="usage">Usage</h1>
+
+<ul>
+<li>See <a href="https://sweetalert2.github.io/#configuration">https://sweetalert2.github.io/#configuration</a> and <a href="https://sweetalert2.github.io/#methods">https://sweetalert2.github.io/#methods</a> for further details.</li>
+<li>Not all methods are implemented as yet. See <code>alert.js</code> for more details.</li>
+<li>Most methods will return a Promise that will resolve to the value from Swal.</li>
+</ul>
+
+<h2 id="api">API</h2>
+
+<ul>
+<li><strong>constructor(head, devTools)</strong></li>
+<li><strong>fireFrameless(swalOptions, parent, alwaysOnTop, draggable, sound, size)</strong></li>
+<li><strong>fireWithFrame(swalOptions, title, parent, alwaysOnTop, sound, size)</strong></li>
+<li><strong>fire(swalOptions, bwOptions, parent, alwaysOnTop, draggable, sound)</strong></li>
+<li><strong>static fireToast(swalOptions, sound, size)</strong></li>
+</ul>
+
+<p>Note: <code>swalOptions</code> mirrors SweetAlert2 options. <code>bwOptions</code> mirrors BrowserWindow options.</p>
+
+<h3 id="sound">sound</h3>
+
+<p>An optional note can be played when the alert is displayed. See <a href="https://marcgg.com/blog/2016/11/01/javascript-audio/">https://marcgg.com/blog/2016/11/01/javascript-audio/</a> for more information.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+	<span style="color:#c30">&#34;freq&#34;</span><span style="color:#555">:</span> <span style="color:#c30">&#34;19.45&#34;</span> <span style="color:#09f;font-style:italic">// or Eb0
+</span><span style="color:#09f;font-style:italic"></span>	<span style="color:#c30">&#34;type&#34;</span><span style="color:#555">:</span> <span style="color:#c30">&#34;sine&#34;</span> <span style="color:#09f;font-style:italic">// [&#34;sine&#34;, &#34;square&#34;, &#34;triange&#34;, &#34;sawtooth&#34;]
+</span><span style="color:#09f;font-style:italic"></span>	<span style="color:#c30">&#34;duration&#34;</span><span style="color:#555">:</span> <span style="color:#c30">&#34;1&#34;</span> <span style="color:#09f;font-style:italic">// 1 sec
+</span><span style="color:#09f;font-style:italic"></span>}
+</code></pre></div>
+<p><strong>Note to Frequency Map:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>C</th>
+<th>C#</th>
+<th>D</th>
+<th>Eb</th>
+<th>E</th>
+<th>F</th>
+<th>F#</th>
+<th>G</th>
+<th>G#</th>
+<th>A</th>
+<th>Bb</th>
+<th>B</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td>16.35</td>
+<td>17.32</td>
+<td>18.35</td>
+<td>19.45</td>
+<td>20.60</td>
+<td>21.83</td>
+<td>23.12</td>
+<td>24.50</td>
+<td>25.96</td>
+<td>27.50</td>
+<td>29.14</td>
+<td>30.87</td>
+</tr>
+
+<tr>
+<td><strong>1</strong></td>
+<td>32.70</td>
+<td>34.65</td>
+<td>36.71</td>
+<td>38.89</td>
+<td>41.20</td>
+<td>43.65</td>
+<td>46.25</td>
+<td>49.00</td>
+<td>51.91</td>
+<td>55.00</td>
+<td>58.27</td>
+<td>61.74</td>
+</tr>
+
+<tr>
+<td><strong>2</strong></td>
+<td>65.41</td>
+<td>69.30</td>
+<td>73.42</td>
+<td>77.78</td>
+<td>82.41</td>
+<td>87.31</td>
+<td>92.50</td>
+<td>98.00</td>
+<td>103.8</td>
+<td>110.0</td>
+<td>116.5</td>
+<td>123.5</td>
+</tr>
+
+<tr>
+<td><strong>3</strong></td>
+<td>130.8</td>
+<td>138.6</td>
+<td>146.8</td>
+<td>155.6</td>
+<td>164.8</td>
+<td>174.6</td>
+<td>185.0</td>
+<td>196.0</td>
+<td>207.7</td>
+<td>220.0</td>
+<td>233.1</td>
+<td>246.9</td>
+</tr>
+
+<tr>
+<td><strong>4</strong></td>
+<td>261.6</td>
+<td>277.2</td>
+<td>293.7</td>
+<td>311.1</td>
+<td>329.6</td>
+<td>349.2</td>
+<td>370.0</td>
+<td>392.0</td>
+<td>415.3</td>
+<td>440.0</td>
+<td>466.2</td>
+<td>493.9</td>
+</tr>
+
+<tr>
+<td><strong>5</strong></td>
+<td>523.3</td>
+<td>554.4</td>
+<td>587.3</td>
+<td>622.3</td>
+<td>659.3</td>
+<td>698.5</td>
+<td>740.0</td>
+<td>784.0</td>
+<td>830.6</td>
+<td>880.0</td>
+<td>932.3</td>
+<td>987.8</td>
+</tr>
+
+<tr>
+<td><strong>6</strong></td>
+<td>1047</td>
+<td>1109</td>
+<td>1175</td>
+<td>1245</td>
+<td>1319</td>
+<td>1397</td>
+<td>1480</td>
+<td>1568</td>
+<td>1661</td>
+<td>1760</td>
+<td>1865</td>
+<td>1976</td>
+</tr>
+
+<tr>
+<td><strong>7</strong></td>
+<td>2093</td>
+<td>2217</td>
+<td>2349</td>
+<td>2489</td>
+<td>2637</td>
+<td>2794</td>
+<td>2960</td>
+<td>3136</td>
+<td>3322</td>
+<td>3520</td>
+<td>3729</td>
+<td>3951</td>
+</tr>
+
+<tr>
+<td><strong>8</strong></td>
+<td>4186</td>
+<td>4435</td>
+<td>4699</td>
+<td>4978</td>
+<td>5274</td>
+<td>5588</td>
+<td>5920</td>
+<td>6272</td>
+<td>6645</td>
+<td>7040</td>
+<td>7459</td>
+<td>7902</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="examples">Examples</h1>
+
+<h2 id="standard-alert">Standard Alert</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> Alert <span style="color:#555">=</span> require(<span style="color:#c30">&#34;electron-alert&#34;</span>);
+
+<span style="color:#069;font-weight:bold">let</span> alert <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> Alert();
+
+<span style="color:#069;font-weight:bold">let</span> swalOptions <span style="color:#555">=</span> {
+	title<span style="color:#555">:</span> <span style="color:#c30">&#34;Are you sure you want to delete?&#34;</span>,
+	text<span style="color:#555">:</span> <span style="color:#c30">&#34;You won&#39;t be able to revert this!&#34;</span>,
+	type<span style="color:#555">:</span> <span style="color:#c30">&#34;warning&#34;</span>,
+	showCancelButton<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">true</span>
+};
+
+alert.fireWithFrame(swalOptions, <span style="color:#c30">&#34;Delete file?&#34;</span>, <span style="color:#069;font-weight:bold">null</span>, <span style="color:#069;font-weight:bold">false</span>);
+</code></pre></div>
+<h2 id="frameless">Frameless</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> Alert <span style="color:#555">=</span> require(<span style="color:#c30">&#34;electron-alert&#34;</span>);
+
+<span style="color:#069;font-weight:bold">let</span> alert <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> Alert();
+
+<span style="color:#069;font-weight:bold">let</span> swalOptions <span style="color:#555">=</span> {
+	title<span style="color:#555">:</span> <span style="color:#c30">&#34;Are you sure you want to delete?&#34;</span>,
+	text<span style="color:#555">:</span> <span style="color:#c30">&#34;You won&#39;t be able to revert this!&#34;</span>,
+	type<span style="color:#555">:</span> <span style="color:#c30">&#34;warning&#34;</span>,
+	showCancelButton<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">true</span>
+};
+
+alert.fireFrameless(swalOptions, <span style="color:#069;font-weight:bold">null</span>, <span style="color:#069;font-weight:bold">true</span>, <span style="color:#069;font-weight:bold">false</span>);
+</code></pre></div>
+<h2 id="toast">Toast</h2>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> Alert <span style="color:#555">=</span> require(<span style="color:#c30">&#34;electron-alert&#34;</span>);
+
+<span style="color:#069;font-weight:bold">let</span> swalOptions <span style="color:#555">=</span> {
+	position<span style="color:#555">:</span> <span style="color:#c30">&#34;top-end&#34;</span>,
+	title<span style="color:#555">:</span> <span style="color:#c30">&#34;Signed in successfully&#34;</span>,
+	type<span style="color:#555">:</span> <span style="color:#c30">&#34;success&#34;</span>,
+	showConfirmButton<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">true</span>,
+	timer<span style="color:#555">:</span> <span style="color:#f60">3000</span>
+};
+
+Alert.fireToast(swalOptions);
+</code></pre></div>
+<h2 id="exception-alert">Exception Alert</h2>
+
+<p>Uncaught exceptions in the main process produce a hideous alert on both windows and mac. You can use <code>uncaughtException()</code> to intercept the exception.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> Alert <span style="color:#555">=</span> require(<span style="color:#c30">&#34;electron-alert&#34;</span>);
+
+app.on(<span style="color:#c30">&#34;ready&#34;</span>, () =&gt; {
+	process.on(
+		<span style="color:#c30">&#34;uncaughtException&#34;</span>,
+		Alert.uncaughtException(<span style="color:#069;font-weight:bold">false</span>, err =&gt; {
+			console.error(<span style="color:#c30">&#34;Uncaught Exception:&#34;</span>, err);
+			process.exit(<span style="color:#f60">1</span>);
+		})
+	);
+});
+</code></pre></div>
+<h1 id="community-support">Community Support</h1>
+
+<p>This library will be rebuilt from scratch for v1.0.0. Desktop alerts have certain nuances that differ from browser-based alerts. The API should embrace the different context rather than mirror Swal.</p>
+
+<h1 id="license">License</h1>
+
+<p>The license is a modified MIT license. Refer to <a href="https://github.com/rocketlaunchr/electron-alert/blob/master/LICENSE">LICENSE</a> file in Github repo for more details.</p>
+
+<p><strong>© 2019 PJ Engineering and Business Solutions Pty. Ltd.</strong></p>
 
     <div id="react-support-footer-root">
       
