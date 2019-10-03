@@ -7,7 +7,7 @@ exclude_search: false
 
 # Tutorial: How to create a cross-platform Desktop App with Electron, Go and React
 
-<!-- ![Electron + Go + React](https://github.com/rocketlaunchr/desktop-application/blob/tutorial/go-react-electron.png?raw=true) -->
+![Electron + Go + React](https://github.com/rocketlaunchr/desktop-application/blob/tutorial/go-react-electron.png?raw=true)
 
 
 With [GopherJS](https://github.com/gopherjs/gopherjs) [a Go-to-JavaScript compiler] and the power which [ElectronJS](https://electronjs.org/) possesses, Go Developers can now create cross-platform Desktop apps written 100% in [Golang](https://golang.org/).
@@ -20,7 +20,7 @@ To view the source code for our Markdown app, clone this [repo](https://github.c
 git clone https://github.com/rocketlaunchr/desktop-application.git
 ```
 
-To open app, having installed [npm](#npm-node-package-manager), run `npm start` from a CLI in the cloned directory. 
+To open app, first, from a CLI (Command Line Interface) in the cloned directory, having installed [npm](#npm-node-package-manager), run `npm install` to install all the app's dependencies then run `npm start` to initialize app.
 
 _[On app start, a tray icon should appear somewhere at the top of your screen (if you're on a Linux-based OS) or at the bottom-right of your screen (on the taskbar) on Windows. Click on this tray icon to view app.]_
 
@@ -33,6 +33,8 @@ Alright, before we start off, some prerequisites for development...
 
 ## Prerequisites
 
+Basically, we have six prerequisites on our list that would suffice our Go desktop app creation.
+
 * [Golang](https://golang.org/)
 * [npm](https://docs.npmjs.com/)
 * [GopherJS](https://github.com/gopherjs/gopherjs)
@@ -43,7 +45,7 @@ Alright, before we start off, some prerequisites for development...
 
 ## Set-up
 
-Ok. So, in order for our dream of creating (cross-platform) desktop apps with Go come to fruition, let's have our dependencies [prerequisites, if you will] set up.
+So, in order for our dream of creating (cross-platform) desktop apps with Go come to fruition, let's have our dependencies [prerequisites, if you will] set up.
 
 ### Golang
 
@@ -51,7 +53,7 @@ First, to program in Go, we'll, obviously, need to have it installed. Click [her
 
 Having downloaded and installed Go, check to see [confirm] that the Go path env (environment) variable is set.
 
-To check that Go has been successfully installed (and env variable set), run `go version` from a CLI (Command Line Interface). This should print the current version of Go you're running. See [installation instructions](https://golang.org/dl/) for more.
+To check that Go has been successfully installed (and env variable set), run `go version` from a CLI. This should print the current version of Go you're running. See [installation instructions](https://golang.org/dl/) for more.
 
 ### npm (Node Package Manager)
 
@@ -107,9 +109,32 @@ To install, run:
 npm install --global rollup
 ```
 
-A little more on Rollup will be discussed in the bundling section.
+A little more on Rollup will be discussed in the bundle section.
 
 Alright. So, we are now all set and ready for an awesome 'Electron-Go-React' adventure. Sweet! Let's dive right in!
+
+## Renderer
+
+...
+
+## Main
+
+...
+
+## Bundle
+
+We now need to compile all our code into a single file to make it production-ready.
+
+So, with Rollup installed, we need to create a Rollup configuration file (rollup.config.js) in the root directory of our app [on the same level as the package.json file] which will then be picked up and used by Rollup to bundle [compile] our app.
+
+But before we go ahead to populate our config file with code, let's `npm install` some Rollup plugins which will be required by Rollup in the bundling process.
+
+From the CLI, run:
+```
+npm install rollup-plugin-node-resolve rollup-plugin-commonjs rollup-plugin-terser rollup-plugin-node-globals rollup-plugin-node-builtins rollup-plugin-json rollup-plugin-replace builtin-modules --only=dev
+```
+
+
 
 
 
