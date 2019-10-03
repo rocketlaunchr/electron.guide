@@ -27,9 +27,9 @@ Alright, before we start off, let's list some prerequisites for development.
 * [Go-React Bindings](https://github.com/rocketlaunchr/react)
 
 
-## Dependencies
+## Set-up
 
-In order for our dream of creating (cross-platform) desktop apps using Go come to fruition, we'll need to have some dependencies installed [prerequisites, if you will] for development.
+In order for our dream of creating (cross-platform) desktop apps using Go come to fruition, let's set up our dependencies [prerequisites, if you will].
 
 * ### Golang
 
