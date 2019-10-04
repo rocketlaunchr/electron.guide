@@ -26,9 +26,11 @@ To view the source code for our Markdown app, clone this [repo](https://github.c
 git clone https://github.com/rocketlaunchr/desktop-application.git
 ```
 
-To open app, first, from a CLI (Command Line Interface) in the cloned directory, having installed [npm](#npm-node-package-manager), run `npm install` to install all the app's dependencies then run `npm start` to initialize app.
+To open app, first, from a CLI (Command Line Interface) in the cloned directory, with [npm](#npm-node-package-manager) installed, run `npm install` to install all the app's dependencies [required [node_modules](https://docs.npmjs.com/about-packages-and-modules#about-modules)] then run `npm start` to initialize app.
 
 [On app start, a tray icon should appear somewhere at the top of your screen (if you're on a Linux-based OS) or at the bottom-right of your screen (on the taskbar) on Windows. Click on this tray icon to view app.]
+
+Note that you must have all [prerequisites](#prerequisites-↑) (installed) for app to actually run.
 
 Sidebar:
 
@@ -75,11 +77,11 @@ Basically, we have six prerequisites that would suffice our Go desktop app creat
 
 ## Set-up  [↑](#table-of-contents)
 
-In order for our dream of creating (cross-platform) desktop apps with Go come to fruition, let's have our dependencies [prerequisites, if you will] set up.
+Now, in order for our dream of creating (cross-platform) desktop apps with Go come to fruition, let's have our dependencies [prerequisites, if you will] set up.
 
 ### Golang
 
-First, to program in Go, we'll, obviously, need to have it installed. Click [here](https://golang.org/dl/) to install a binary suitable for your OS (Operating System).
+First, to program in Go, we'll, obviously, need to have it installed. Click [here](https://golang.org/dl/) to download and install a binary suitable for your OS (Operating System).
 
 Having downloaded and installed Go, check to see [confirm] that the Go path env (environment) variable is set.
 
@@ -137,9 +139,7 @@ go get -u github.com/rocketlaunchr/react
 
 Finally, on our dependencies list, our (JavaScript) bundler: Rollup.js.
 
-What is [Rollup](https://rollupjs.org/guide/en/)?
-
-> _Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application._
+> _[Rollup](https://rollupjs.org/guide/en/) is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application._
 
 Installation:
 
@@ -163,9 +163,9 @@ Alright. So, we are now all set and ready for an awesome 'Electron-Go-React' adv
 
 We now have to compile all our code into a single file [a bundle] to make it production-ready.
 
-So, with Rollup [our bundler] installed, we need to create a Rollup configuration file (`rollup.config.js`) in the root directory of our app [on the same level as the package.json file] which will then be picked up and used by Rollup to compile [bundle] all our code.
+So, with Rollup [our bundler] installed, we need to create a Rollup configuration file (`rollup.config.js`) in the root directory of our app [on the same level as the package.json file] which will be picked up and used by Rollup to compile [bundle] all our code.
 
-But before we go on to populate our config file with config code, let's `npm install` some Rollup plugins [development dependencies] which will be required by Rollup during bundling process.
+But before we go on to populate our config file with config code, let's `npm install` some Rollup plugins [development dependencies] which will be required by Rollup during bundling.
 
 #### - [rollup-plugin-node-resolve](https://www.npmjs.com/package/rollup-plugin-node-resolve)
 
@@ -201,7 +201,7 @@ npm install --save-dev rollup-plugin-node-globals
 
 #### - [rollup-plugin-node-builtins](https://www.npmjs.com/package/rollup-plugin-node-builtins)
 
-> _Allows the node builtins to be `require`d/`import`ed. Doing so gives the proper shims to support modules that were designed for Browserify, some modules require rollup-plugin-node-globals._
+> _Allows the node builtins to be [`require`d](https://nodejs.org/zh-cn/knowledge/getting-started/what-is-require/)/[`import`ed](https://adrianmejia.com/getting-started-with-node-js-modules-require-exports-imports-npm-and-beyond/). Doing so gives the proper shims to support modules that were designed for Browserify, some modules require rollup-plugin-node-globals._
 
 ```powershell
 npm install --save-dev rollup-plugin-node-builtins
@@ -247,7 +247,7 @@ What is **[fs](https://nodejs.org/api/fs.html#fs_file_system)**?
 
 > _The Node.js file system module provides an API for interacting with the file system._
 
-Now, here is what the structure of our Rollup config default export, `exp` (or any variable name you wish to use), would look like:
+Now, here is what the structure of our Rollup config [default](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export#Using_the_default_export) [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export), `exp` (or any variable name you wish to use), would look like:
 
 ```javascript
 export default exp = [
@@ -270,13 +270,13 @@ export default exp = [
 
 So, it's, basically, an array of [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) with config options for each file to be bundled (`main` and `renderer` in our case).
 
-`input` takes the path to the file to be bundled (which is a string) as its value.
+`input` (string) takes the path to the file to be bundled as its value.
 
-`output` takes an object of options for the final or target output [the bundle].
+`output` (object) takes an object of options for the final or target output [the bundle].
 
-`external` takes an array of strings as its value.
+`external` (array) takes an array of strings as its value.
 
-`plugins` takes an array of plugins which are actually just functions called within.
+`plugins` (array) takes an array of plugins which are actually just functions called within.
 
 Here's our config code:
 
@@ -290,7 +290,7 @@ Here's our config code:
 
 Having done these, we can now create a build script for Rollup to build our app.
 
-In `package.json`, under `"scripts"`, set `"build": "rollup -c"`. We can then run `npm run build` to build [bundle] our app.
+In `package.json`, under `"scripts"`, set `"build": "rollup -c"`. We can now run `npm run build` to build [bundle] our app.
 
 Note that we could also run `rollup -c` directly from the CLI to build our app without actually using `npm run build` since we installed Rollup globally.
 
