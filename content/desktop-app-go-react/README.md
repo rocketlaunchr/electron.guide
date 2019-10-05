@@ -26,11 +26,11 @@ To view the source code for our Markdown app, clone this [repo](https://github.c
 git clone https://github.com/rocketlaunchr/desktop-application.git
 ```
 
-To open app, first, from a CLI (Command Line Interface) in the cloned directory, with [npm](#npm-node-package-manager) installed, run `npm install` to install all the app's dependencies [required [node_modules](https://docs.npmjs.com/about-packages-and-modules#about-modules)] then run `npm start` to initialize app.
+To run app, first, from a CLI (Command Line Interface) in the cloned directory, with [npm](#npm-node-package-manager) installed, run `npm install` to install all the app's dependencies [required [node_modules](https://docs.npmjs.com/about-packages-and-modules#about-modules)] then run `npm start` to initialize app.
 
 [On app start, a tray icon should appear somewhere at the top of your screen (if you're on a Linux-based OS) or at the bottom-right of your screen (on the taskbar) on Windows. Click on this tray icon to view app.]
 
-Note that you must have all [prerequisites](#prerequisites-↑) (installed) for app to actually run.
+**Note** that you must have all [prerequisites](#prerequisites-↑) (installed) for app to actually run.
 
 **Sidebar:**
 
@@ -309,7 +309,7 @@ Now, here's our config code:
 
 ![Rollup Dependencies](./images/renderer_config.png)
 
-Having done these, let's now create a build script for Rollup.
+Having done all, let's now create a build script for Rollup.
 
 In `package.json`, under `"scripts"`, set `"build": "rollup -c"`. We can now run `npm run build` to build [bundle] our app.
 
