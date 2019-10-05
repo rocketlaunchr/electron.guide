@@ -51,14 +51,6 @@ Sidebar:
 * [Renderer](#renderer-↑)
 * [Main](#main-↑)
 * [Bundle](#bundle-↑)
-  * [rollup-plugin-node-resolve](#--rollup-plugin-node-resolve)
-  * [rollup-plugin-commonjs](#--rollup-plugin-commonjs)
-  * [rollup-plugin-terser](#--rollup-plugin-terser)
-  * [rollup-plugin-node-globals](#--rollup-plugin-node-globals)
-  * [rollup-plugin-node-builtins](#--rollup-plugin-node-builtins)
-  * [rollup-plugin-json](#--rollup-plugin-json)
-  * [rollup-plugin-replace](#--rollup-plugin-replace)
-  * [builtin-modules](#--builtin-modules)
   * [Rollup Config](#rollup-config)
 * [Distribution](#distribution-↑)
 
@@ -165,9 +157,9 @@ We now have to compile all our code into a single file [a bundle] to make it pro
 
 So, with Rollup [our bundler] installed, we need to create a Rollup configuration file (`rollup.config.js`) in the root directory of our app [on the same level as the package.json file] which will be picked up and used by Rollup to compile [bundle] all our code.
 
-But before we go on to populate our config file with config code, let's `npm install` some Rollup plugins [development dependencies] which will be required by Rollup during bundling.
+But before we go on to populate our config file with config code, let's `npm install` some Rollup plugins [development dependencies] which Rollup will require to bundle our app.
 
-#### - [rollup-plugin-node-resolve](https://www.npmjs.com/package/rollup-plugin-node-resolve)
+* **[rollup-plugin-node-resolve](https://www.npmjs.com/package/rollup-plugin-node-resolve)**
 
 > _Locate modules using the Node resolution algorithm, for using third party modules in node_modules._
 
@@ -175,7 +167,7 @@ But before we go on to populate our config file with config code, let's `npm ins
 npm install --save-dev rollup-plugin-node-resolve
 ```
 
-#### - [rollup-plugin-commonjs](https://www.npmjs.com/package/rollup-plugin-commonjs)
+* **[rollup-plugin-commonjs](https://www.npmjs.com/package/rollup-plugin-commonjs)**
 
 > _Convert CommonJS modules to ES6, so they can be included in a Rollup bundle._
 
@@ -183,7 +175,7 @@ npm install --save-dev rollup-plugin-node-resolve
 npm install --save-dev rollup-plugin-node-resolve
 ```
 
-#### - [rollup-plugin-terser](https://www.npmjs.com/package/rollup-plugin-terser)
+* **[rollup-plugin-terser](https://www.npmjs.com/package/rollup-plugin-terser)**
 
 > _Rollup plugin to minify generated es bundle. Uses terser under the hood._
 
@@ -191,7 +183,7 @@ npm install --save-dev rollup-plugin-node-resolve
 npm install --save-dev rollup-plugin-terser
 ```
 
-#### - [rollup-plugin-node-globals](https://www.npmjs.com/package/rollup-plugin-node-globals)
+* **[rollup-plugin-node-globals](https://www.npmjs.com/package/rollup-plugin-node-globals)**
 
 > _Plugin to insert node globals including so code that works with browserify should work even if it uses process or buffers._
 
@@ -199,7 +191,7 @@ npm install --save-dev rollup-plugin-terser
 npm install --save-dev rollup-plugin-node-globals
 ```
 
-#### - [rollup-plugin-node-builtins](https://www.npmjs.com/package/rollup-plugin-node-builtins)
+* **[rollup-plugin-node-builtins](https://www.npmjs.com/package/rollup-plugin-node-builtins)**
 
 > _Allows the node builtins to be [`require`d](https://nodejs.org/zh-cn/knowledge/getting-started/what-is-require/)/[`import`ed](https://adrianmejia.com/getting-started-with-node-js-modules-require-exports-imports-npm-and-beyond/). Doing so gives the proper shims to support modules that were designed for Browserify, some modules require rollup-plugin-node-globals._
 
@@ -207,7 +199,7 @@ npm install --save-dev rollup-plugin-node-globals
 npm install --save-dev rollup-plugin-node-builtins
 ```
 
-#### - [rollup-plugin-json](https://www.npmjs.com/package/rollup-plugin-json)
+* **[rollup-plugin-json](https://www.npmjs.com/package/rollup-plugin-json)**
 
 > _Convert .json files to ES6 modules._
 
@@ -215,7 +207,7 @@ npm install --save-dev rollup-plugin-node-builtins
 npm install --save-dev rollup-plugin-json
 ```
 
-#### - [rollup-plugin-replace](https://www.npmjs.com/package/rollup-plugin-replace)
+* **[rollup-plugin-replace](https://www.npmjs.com/package/rollup-plugin-replace)**
 
 > _Replace strings in files while bundling them._
 
@@ -223,7 +215,7 @@ npm install --save-dev rollup-plugin-json
 npm install --save-dev rollup-plugin-replace
 ```
 
-#### - [builtin-modules](https://www.npmjs.com/package/builtin-modules)
+* **[builtin-modules](https://www.npmjs.com/package/builtin-modules)**
 
 > _Returns an array of builtin modules fetched from the running Node.js version._
 
@@ -270,15 +262,17 @@ export default exp = [
 
 So, it's, basically, an array of [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) with config options for each file to be bundled (`main` and `renderer` in our case).
 
-`input` (string) takes the path to the file to be bundled as its value.
+`input` [string] takes the path to the file to be bundled as its value.
 
-`output` (object) takes an object of options for the final or target output [the bundle].
+`output` [object] takes (as value) an object of options for the final or target output [the bundle].
 
-`external` (array) takes an array of strings as its value.
+`external` [array] takes (as value) an array of strings which are names of modules to be excluded during bundling.
 
-`plugins` (array) takes an array of plugins which are actually just functions called within.
+`plugins` [array] takes (as value) an array of plugins which are actually just functions [modules] that change the behaviour of Rollup during bundling.
 
-Here's our config code:
+_**Note:** `output`, `external` and `plugins` could be made to accept slightly differently values. See [Rollup guide](https://rollupjs.org/guide/en/) for more._
+
+Now, here's our config code:
 
 **main process** Rollup config:
 
@@ -288,11 +282,11 @@ Here's our config code:
 
 ![Rollup Dependencies](./renderer_config.png)
 
-Having done these, we can now create a build script for Rollup to build our app.
+Having done these, let's now create a build script for Rollup.
 
 In `package.json`, under `"scripts"`, set `"build": "rollup -c"`. We can now run `npm run build` to build [bundle] our app.
 
-Note that we could also run `rollup -c` directly from the CLI to build our app without actually using `npm run build` since we installed Rollup globally.
+**Note** that we could also run `rollup -c` directly from the CLI to build our app without actually using `npm run build` since we installed Rollup globally.
 
 So, with that we've successfully bundled Mark-down and made it production-ready. ;)
 
