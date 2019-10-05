@@ -14,7 +14,7 @@ React: 05a5d1
 
 <!-- ![Electron + Go + React](https://github.com/rocketlaunchr/desktop-application/blob/tutorial/go-react-electron.png?raw=true) -->
 
-![Electron + Go + React](./go-react-electron.png)
+![Electron + Go + React](./images/go-react-electron.png)
 
 With [GopherJS](https://github.com/gopherjs/gopherjs) [a Go-to-JavaScript compiler] and the power which [ElectronJS](https://electronjs.org/) possesses, Go Developers can now create cross-platform Desktop apps written 100% in [Golang](https://golang.org/).
 
@@ -32,11 +32,11 @@ To open app, first, from a CLI (Command Line Interface) in the cloned directory,
 
 Note that you must have all [prerequisites](#prerequisites-↑) (installed) for app to actually run.
 
-Sidebar:
+**Sidebar:**
 
-1. This tutorial is targeted at Go Developers who either have little to no prior or professional knowledge of [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [RollupJS](https://rollupjs.org/) or [npm](https://docs.npmjs.com/) (Node Package Manager).
-2. You should have a professional or working knowledge of GoLang; knowledge of React APIs is a plus.
-3. You'll need have some chill and enthusiasm. :)
+1. _This tutorial is targeted at Go Developers who either have little to no prior or professional knowledge of [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [RollupJS](https://rollupjs.org/) or [npm](https://docs.npmjs.com/) (Node Package Manager)._
+2. _You should have a professional or working knowledge of GoLang; knowledge of React APIs is a plus._
+3. _You'll need have some chill and enthusiasm. :)_
 
 ## Table of Contents
 
@@ -116,6 +116,33 @@ Installation:
 ```powershell
 npm install electron --save-dev [--save-exact]
 ```
+
+**Sidebar:**
+
+For a quick start of Electron, run:
+
+```powershell
+git clone https://github.com/electron/electron-quick-start
+cd electron-quick-start
+npm install
+npm start
+```
+
+These will clone the `electron-quick-start` repo to your local directory; `cd` [change directory] to the clone; install all dependencies for the minimal `electron-quick-start` app; then start or initialize the app.
+
+But before I move on, I'd like to point out and say a few things about two specific and important files you should notice in the root of the (cloned) `electron-quick-start` directory: `main.js` and `renderer.js`.
+
+Ok. These two files are, basically, what make up the desktop app. Let me give a basic explanation of this two.
+
+`main.js` [the `main` process] creates [`BrowserWindow`](https://electronjs.org/docs/api/browser-window#class-browserwindow) for the `renderer` process and also enables us have access to native OS resources via Node.js APIs which we, hitherto, couldn't have access to if we were on a (sandboxed) Web browser.
+
+`renderer.js` [the `renderer` process] handles rendering (the web page) or we could say is the page.
+
+We can have many `renderer` processes, in other words, many web pages. On the other hand, we can have **only one** `main` process. See [Electron app architecture](https://electronjs.org/docs/tutorial/application-architecture) for more.
+
+**Note:** The `main` process file doesn't necessarily have to be named `main.js`, it can be named anything (`we.js`); same with the `renderer` process. Here is what I mean...
+
+> In Electron, the process that runs `package.json`'s `main` script is called the **main process**.
 
 ### Go-React Bindings
 
@@ -229,7 +256,7 @@ With all the dependencies installed, let's proceed to write some config code.
 
 First, we import all the dependencies:
 
-![Rollup Dependencies](./rollup_dependencies.png)
+![Rollup Dependencies](./images/rollup_dependencies.png)
 
 What is **[child_process](https://nodejs.org/api/child_process.html#child_process_child_process)**?
 
@@ -270,17 +297,17 @@ So, it's, basically, an array of [objects](https://developer.mozilla.org/en-US/d
 
 `plugins` [array] takes (as value) an array of plugins which are actually just functions [modules] that change the behaviour of Rollup during bundling.
 
-_**Note:** `output`, `external` and `plugins` could be made to accept slightly differently values. See [Rollup guide](https://rollupjs.org/guide/en/) for more._
+_**Note:** `output`, `external` and `plugins` could be made to accept slightly different values. See [Rollup guide](https://rollupjs.org/guide/en/) for more._
 
 Now, here's our config code:
 
 **main process** Rollup config:
 
-![Rollup Dependencies](./main_config.png)
+![Rollup Dependencies](./images/main_config.png)
 
 **renderer process** Rollup config:
 
-![Rollup Dependencies](./renderer_config.png)
+![Rollup Dependencies](./images/renderer_config.png)
 
 Having done these, let's now create a build script for Rollup.
 
