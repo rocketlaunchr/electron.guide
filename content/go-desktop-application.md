@@ -12,9 +12,9 @@ React: 05a5d1
 
 # **Tutorial: How to Create a Cross-platform Desktop App with Electron, Go and React**
 
-<!-- ![Electron + Go + React](https://github.com/rocketlaunchr/desktop-application/blob/tutorial/go-react-electron.png?raw=true) -->
+![Electron + Go + React](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/go-react-electron.png)
 
-![Electron + Go + React](../static/static/images/go-desktop-application/go-react-electron.png)
+<!-- ![Electron + Go + React](static/static/images/go-desktop-application/go-react-electron.png) -->
 
 With [GopherJS](https://github.com/gopherjs/gopherjs) [a Go-to-JavaScript compiler] and the power which [ElectronJS](https://electronjs.org/) possesses, Go Developers can now create cross-platform Desktop apps written 100% in [Golang](https://golang.org/).
 
@@ -270,7 +270,9 @@ We can now proceed to write our config code.
 
 First, we import all the dependencies:
 
-![Rollup Dependencies](../static/static/images/go-desktop-application/rollup_dependencies.png)
+![Rollup Dependencies](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/rollup_dependencies.png)
+
+<!-- ![Rollup Dependencies](/static/static/images/go-desktop-application/rollup_dependencies.png) -->
 
 What is **[child_process](https://nodejs.org/api/child_process.html#child_process_child_process)**?
 
@@ -317,11 +319,15 @@ Now, here's our config code:
 
 **main process** Rollup config:
 
-![Rollup Dependencies](../static/static/images/go-desktop-application/main_config.png)
+![main config](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/main_config.png)
+
+<!-- ![main config](/static/static/images/go-desktop-application/main_config.png) -->
 
 **renderer process** Rollup config:
 
-![Rollup Dependencies](../static/static/images/go-desktop-application/renderer_config.png)
+![renderer config](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/renderer_config.png)
+
+<!-- ![renderer config](/static/static/images/go-desktop-application/renderer_config.png) -->
 
 Having done all, let's now create a build script for Rollup.
 
