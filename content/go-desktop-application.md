@@ -5,8 +5,8 @@ draft: false
 exclude_search: false
 
 Electron color: cff7ff
-Go: 2dbcaf
-React: 05a5d1
+Go color: 2dbcaf
+React color: 05a5d1
 
 --- -->
 
@@ -14,7 +14,7 @@ React: 05a5d1
 
 ![Electron + Go + React](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/go-react-electron.png)
 
-<!-- ![Electron + Go + React](static/static/images/go-desktop-application/go-react-electron.png) -->
+<!-- ![Electron + Go + React](/static/static/images/go-desktop-application/go-react-electron.png) -->
 
 With [GopherJS](https://github.com/gopherjs/gopherjs) [a Go-to-JavaScript compiler] and the power which [ElectronJS](https://electronjs.org/) possesses, Go Developers can now create cross-platform Desktop apps written 100% in [Golang](https://golang.org/).
 
@@ -30,7 +30,7 @@ Before we embark on this journey, some...
 
 Ok. Moving forward.
 
-So, to view the source code for our Markdown app, clone this [repo](https://github.com/rocketlaunchr/desktop-application/) to your local drive:
+So, to view our Markdown app, clone this [repo](https://github.com/rocketlaunchr/desktop-application/) to your local drive:
 
 ```powershell
 git clone https://github.com/rocketlaunchr/desktop-application.git
@@ -84,7 +84,7 @@ First, download and install Golang. Click [here](https://golang.org/dl/) to down
 
 Having done that, check to see [confirm] that the Go path env (environment) variable is set.
 
-To do this, run `go version` from a CLI. This should print the current version of Go you're running. See [installation instructions](https://golang.org/dl/) for more.
+To do this, run `go version` from a CLI. This should print the current version of Go you're running. See [Go installation instructions](https://golang.org/dl/) for more.
 
 ### **npm (Node Package Manager)**
 
@@ -266,9 +266,9 @@ npm install --save-dev builtin-modules
 
 ### **Rollup Config**
 
-We can now proceed to write our config code.
+We can now proceed to write some config code.
 
-First, we import all the dependencies:
+First, we import all dependencies:
 
 ![Rollup Dependencies](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/rollup_dependencies.png)
 
@@ -282,10 +282,10 @@ What is **[fs](https://nodejs.org/api/fs.html#fs_file_system)**?
 
 > _The Node.js file system module provides an API for interacting with the file system._
 
-Now, here is what the structure of our Rollup config [default](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export#Using_the_default_export) [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export), `exp` (or any variable name you wish to name it), would look like:
+Now, here is what the structure of our Rollup config [default](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export#Using_the_default_export) [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export), would look like:
 
 ```javascript
-export default exp = [
+export default [
   // main process (nodejs) config
   {
     input: "",
@@ -313,7 +313,7 @@ So, it's, basically, an array of [objects](https://developer.mozilla.org/en-US/d
 
 `plugins` [array] takes (as value) an array of plugins which are actually just functions [modules] that change the behaviour of Rollup during bundling.
 
-_**Note:** `output`, `external` and `plugins` could be made to accept slightly different values. See [Rollup guide](https://rollupjs.org/guide/en/) for more._
+_**Note:** `output`, `external` and `plugins` could be made to accept slightly different value types. See [Rollup guide](https://rollupjs.org/guide/en/) for more._
 
 Now, here's our config code:
 
@@ -329,9 +329,21 @@ Now, here's our config code:
 
 <!-- ![renderer config](/static/static/images/go-desktop-application/renderer_config.png) -->
 
-Having done all, let's now create a build script for Rollup.
+Having done those, let's create a build script for Rollup. But first, let's compile our Go files to JavaScript which Rollup will read and use for bundling. We define a `gopherBuild` function:
 
-In `package.json`, under `"scripts"`, set `"build": "rollup -c"`. We can now run `npm run build` to build [bundle] our app.
+![gopherBuild function definition](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/gopherBuild_definition.png)
+
+<!-- ![gopherBuild function definition](/static/static/images/go-desktop-application/gopherBuild_definition.png) -->
+
+And call it just before our default Rollup export to build and compile our Go code to the necessary JavaScript files needed for Rollup bundling:
+
+![gopherBuild function call](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/gopherBuild_call.png)
+
+<!-- ![gopherBuild function call](/static/static/images/go-desktop-application/gopherBuild_call.png) -->
+
+**Sidebar:** Remember the `GOOS=linux` env variable bug for Windows in the [GopherJS](#gopherjs) section of [Set-up](#set-up-table-of-contents)? Line 98 in the `gopherBuild` function definition above fixes this by checking to see if the current OS platform is Windows and sets the `GOOS` env variable accordingly.
+
+Now, in `package.json`, under `"scripts"`, set `"build": "rollup -c"`. We can then run `npm run build` to build [bundle] our app.
 
 **Note** that we could also run `rollup -c` directly from the CLI to build our app without actually using `npm run build` since we installed Rollup globally.
 
@@ -339,7 +351,7 @@ So, with that we've successfully bundled Mark-down and made it production-ready.
 
 ## **Distribution [↑](#table-of-contents)**
 
-Finally, we will package (or literally, `make`) our app for distribution. We'll be using the [Electron Forge](https://www.npmjs.com/package/electron-forge) npm package for this, and it's actually very easy.
+Finally, we will package (or literally, `make`) our app for distribution using the [Electron Forge](https://www.npmjs.com/package/electron-forge) npm package. And it's actually very easy. Yeah. :)
 
 First, install Electron Forge globally:
 
@@ -347,7 +359,7 @@ First, install Electron Forge globally:
 npm install -g electron-forge
 ```
 
-Secondly, since we have an existing app [project/package], all we need do is import our project to make it Forge compatible. _See [Starting a new Project](https://www.npmjs.com/package/electron-forge#starting-a-new-project) on steps on how to start a brand new project._
+Secondly, since we have an existing app [project/package], all we need do is import our project to make it Forge compatible. _See [Starting a new Project](https://www.npmjs.com/package/electron-forge#starting-a-new-project) for steps on how to start a brand new project._
 
 ```powershell
 electron-forge import desktop-application
@@ -363,28 +375,21 @@ npm run make
 
 This will `package` and `make` our app ready for distribution. As easy as that!
 
-After making is complete, you'll find an `out` folder at the root of the project. In the `make` sub-folders is where you'll find `.exe`'s [executables] for your app.
+After `make`-ing is complete, you'll find an `out` folder at the root of the project; open it. In the `make` sub-folders is where you'll find `.exe`'s [executables] for the app.
 
 _**Note** that you may need to, manually, install the 'maker' dependency/dependencies Electron Forge added in `package.json` for the target platform in case of any dependency/dependencies errors._
 
 Head over to `package.json`; you should see something like this:
 
-```json
-  "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.45",
-    "@electron-forge/maker-deb": "^6.0.0-beta.45",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.45",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.45",
-    "@electron-forge/maker-zip": "^6.0.0-beta.45",
-    ...
-  }
-```
+![devDependencies makers](https://raw.githubusercontent.com/rocketlaunchr/electron.guide/tutorial/content/static/static/images/go-desktop-application/devdeps_makers.png)
+
+<!-- ![devDependencies makers](/static/static/images/go-desktop-application/devdeps_makers.png) -->
 
 So, in actual fact, when Electron Forge tries to `package` and `make` your app, it `package`s and `make`s it for the target machine [your PC in this case]. In other words,
 
 > _By default, you can only generate distributables for your current platform. If you want to specify platform / arch, use the --platform=\<platform\> and --arch=\<arch\> arguments, but please note that some distributables are not available to be built on anything but the platform that is targeted. For example, appx (Windows Store) distributables can only be built on Windows._
 
-Now, for instance, on Windows, you'd do:
+Now, for instance, to install the maker devDependency for Windows, you'd do:
 
 ```powershell
 npm install @electron-forge/maker-squirrel --save-dev
@@ -396,7 +401,7 @@ npm install @electron-forge/maker-squirrel --save-dev
 npm run make
 ```
 
-And with that, our app will be ready for distribution. :)
+And with that, our app is ready for distribution. :)
 
 ## **Conclusion [↑](#table-of-contents)**
 
