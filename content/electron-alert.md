@@ -17,11 +17,11 @@ ElectronAlert is a beautiful and developer-friendly alert for [Electron](https:/
 
 # Features
 
--   WithFrame and Frameless alerts that are visually stunning
--   Toasts with timers
--   Exception handling alert
--   Sounds
--   SweetAlert2-esque API\*
+- WithFrame and Frameless alerts that are visually stunning
+- Toasts with timers
+- Exception handling alert
+- Sounds
+- SweetAlert2-esque API\*
 
 # Installation
 
@@ -35,19 +35,19 @@ https://github.com/rocketlaunchr/electron-alert
 
 # Usage
 
--   See https://sweetalert2.github.io/#configuration and https://sweetalert2.github.io/#methods for further details.
--   Not all methods are implemented as yet. See `alert.js` for more details.
--   Most methods will return a Promise that will resolve to the value from Swal.
+- See https://sweetalert2.github.io/#configuration and https://sweetalert2.github.io/#methods for further details.
+- Not all methods are implemented as yet. See `alert.js` for more details.
+- Most methods will return a Promise that will resolve to the value from Swal.
 
 ## API
 
--   **constructor(head, devTools)**
--   **fireFrameless(swalOptions, parent, alwaysOnTop, draggable, sound, size)**
--   **fireWithFrame(swalOptions, title, parent, alwaysOnTop, sound, size)**
--   **fire(swalOptions, bwOptions, parent, alwaysOnTop, draggable, sound)**
--   **static fireToast(swalOptions, sound, size)**
+- **constructor(head: string | Array&lt;string&gt;, devTools: boolean)**
+- **fireFrameless(options: ElectronAlertOptions | SweetAlertOptions)**
+- **fireWithFrame(options: ElectronAlertOptions | SweetAlertOptions)**
+- **fire(options: ElectronAlertOptions | SweetAlertOptions)**
+- **static fireToast(options: ElectronAlertOptions | SweetAlertOptions)**
 
-Note: `swalOptions` mirrors SweetAlert2 options. `bwOptions` mirrors BrowserWindow options.
+Note: `options.swalOptions` mirrors SweetAlert2 options. `options.bwOptions` mirrors BrowserWindow options.
 
 ### sound
 
@@ -55,8 +55,8 @@ An optional note can be played when the alert is displayed. See https://marcgg.c
 
 ```javascript
 {
-	"freq": "19.45" // or Eb0
-	"type": "sine" // ["sine", "square", "triange", "sawtooth"]
+	"freq": "19.45", // or Eb0
+	"type": "sine", // ["sine", "square", "triange", "sawtooth"]
 	"duration": "1" // 1 sec
 }
 ```
@@ -85,13 +85,17 @@ const Alert = require("electron-alert");
 let alert = new Alert();
 
 let swalOptions = {
-	title: "Are you sure you want to delete?",
-	text: "You won't be able to revert this!",
-	type: "warning",
-	showCancelButton: true
+  title: "Are you sure you want to delete?",
+  text: "You won't be able to revert this!",
+  type: "warning",
+  showCancelButton: true
 };
 
-alert.fireWithFrame(swalOptions, "Delete file?", null, false);
+alert.fireWithFrame({
+  swalOptions,
+  title: "Delete file?",
+  alwaysOnTop: false
+});
 ```
 
 ## Frameless
@@ -102,13 +106,17 @@ const Alert = require("electron-alert");
 let alert = new Alert();
 
 let swalOptions = {
-	title: "Are you sure you want to delete?",
-	text: "You won't be able to revert this!",
-	type: "warning",
-	showCancelButton: true
+  title: "Are you sure you want to delete?",
+  text: "You won't be able to revert this!",
+  type: "warning",
+  showCancelButton: true
 };
 
-alert.fireFrameless(swalOptions, null, true, false);
+alert.fireFrameless({
+  swalOptions,
+  alwaysOnTop: true,
+  draggable: false
+});
 ```
 
 ## Toast
@@ -117,11 +125,11 @@ alert.fireFrameless(swalOptions, null, true, false);
 const Alert = require("electron-alert");
 
 let swalOptions = {
-	position: "top-end",
-	title: "Signed in successfully",
-	type: "success",
-	showConfirmButton: true,
-	timer: 3000
+  position: "top-end",
+  title: "Signed in successfully",
+  type: "success",
+  showConfirmButton: true,
+  timer: 3000
 };
 
 Alert.fireToast(swalOptions);
@@ -135,13 +143,13 @@ Uncaught exceptions in the main process produce a hideous alert on both windows 
 const Alert = require("electron-alert");
 
 app.on("ready", () => {
-	process.on(
-		"uncaughtException",
-		Alert.uncaughtException(false, err => {
-			console.error("Uncaught Exception:", err);
-			process.exit(1);
-		})
-	);
+  process.on(
+    "uncaughtException",
+    Alert.uncaughtException(false, err => {
+      console.error("Uncaught Exception:", err);
+      process.exit(1);
+    })
+  );
 });
 ```
 
