@@ -113,7 +113,7 @@
 <li>Toasts with timers</li>
 <li>Exception handling alert</li>
 <li>Sounds</li>
-<li>SweetAlert2-esque API*</li>
+<li>SweetAlert2-esque API* (<a href="https://sweetalert2.github.io/v8.html">v8.19</a>)</li>
 </ul>
 
 <h1 id="installation">Installation</h1>
@@ -126,8 +126,8 @@
 <h1 id="usage">Usage</h1>
 
 <ul>
-<li>See <a href="https://sweetalert2.github.io/#configuration">https://sweetalert2.github.io/#configuration</a> and <a href="https://sweetalert2.github.io/#methods">https://sweetalert2.github.io/#methods</a> for further details.</li>
-<li>Not all methods are implemented as yet. See <code>alert.js</code> for more details.</li>
+<li>See <a href="https://sweetalert2.github.io/v8.html">SweetAlert2 v8.19</a> Documentation for further details (<a href="https://sweetalert2.github.io/v8.html#configuration">configuration</a> &amp; <a href="https://sweetalert2.github.io/v8.html#methods">methods</a>)</li>
+<li>Not all methods are implemented as yet. See <code>src/alert.js</code> for more details.</li>
 <li>Most methods will return a Promise that will resolve to the value from Swal.</li>
 </ul>
 
@@ -365,7 +365,7 @@ Alert.fireToast(swalOptions);
 </code></pre></div>
 <h2 id="exception-alert">Exception Alert</h2>
 
-<p>Uncaught exceptions in the main process produce a hideous alert on both windows and mac. You can use <code>uncaughtException()</code> to intercept the exception.</p>
+<p>Uncaught exceptions in the main process produce a hideous alert on both windows and macOS. You can use <code>uncaughtException()</code> to intercept the exception.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> Alert <span style="color:#555">=</span> require(<span style="color:#c30">&#34;electron-alert&#34;</span>);
 
 app.on(<span style="color:#c30">&#34;ready&#34;</span>, () =&gt; {
@@ -374,7 +374,7 @@ app.on(<span style="color:#c30">&#34;ready&#34;</span>, () =&gt; {
 		Alert.uncaughtException(<span style="color:#069;font-weight:bold">false</span>, err =&gt; {
 			console.error(<span style="color:#c30">&#34;Uncaught Exception:&#34;</span>, err);
 			process.exit(<span style="color:#f60">1</span>);
-		})
+		}, <span style="color:#069;font-weight:bold">true</span>, <span style="color:#069;font-weight:bold">true</span>)
 	);
 });
 </code></pre></div>
@@ -386,8 +386,6 @@ app.on(<span style="color:#c30">&#34;ready&#34;</span>, () =&gt; {
 
 <p>The license is a modified MIT license. Refer to <a href="https://github.com/rocketlaunchr/electron-alert/blob/master/LICENSE">LICENSE</a> file in Github repo for more details.</p>
 
-<p><strong>© 2019 PJ Engineering and Business Solutions Pty. Ltd.</strong></p>
-
     <div id="react-support-footer-root">
       
     </div>
@@ -398,7 +396,7 @@ app.on(<span style="color:#c30">&#34;ready&#34;</span>, () =&gt; {
 <div class="dc-page">
 	<div id="disqus_thread"></div>
 
-  <div style="text-align: center;"> &copy; 2019 <a target="_blank" href="https://rocketlaunchr.cloud">rocketlaunchr.cloud</a>. All rights reserved.</div>
+  <div style="text-align: center;"> &copy; 2019&ndash;19 <a target="_blank" href="https://rocketlaunchr.cloud">rocketlaunchr.cloud</a>. All rights reserved.</div>
 </div>
 <script>
 
