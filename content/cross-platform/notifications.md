@@ -24,4 +24,5 @@ Basic    | Notification with image
 ## Extra Info
 
 * https://electronjs.org/docs/tutorial/notifications (HTML5 Renderer Process)
+* https://github.com/mikaelbr/node-notifier (A more powerful cross-platform option)
 * https://github.com/felixrieseberg/electron-windows-notifications

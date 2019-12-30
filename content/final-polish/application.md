@@ -58,4 +58,5 @@ process.on('uncaughtException', error => {
 });
 ```
 
-See https://github.com/sindresorhus/electron-unhandled
+- See https://github.com/sindresorhus/electron-unhandled.
+- See {{< ref "/electron-alert#exception-alert" >}} (**recommended**)

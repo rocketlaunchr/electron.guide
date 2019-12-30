@@ -10,4 +10,4 @@ Currently looking for higher-quality images (including Linux screenshots)
 All are welcome to add content to the site. Issue a PR and from time-to-time I will review and approve.
 
 
-© 2019 rocketlaunchr.cloud. All rights reserved.
+© 2019-20 rocketlaunchr.cloud. All rights reserved.

@@ -21,7 +21,7 @@ ElectronAlert is a beautiful and developer-friendly alert for [Electron](https:/
 -   Toasts with timers
 -   Exception handling alert
 -   Sounds
--   SweetAlert2-esque API\*
+-   SweetAlert2-esque API\* ([v8.19](https://sweetalert2.github.io/v8.html))
 
 # Installation
 
@@ -35,8 +35,8 @@ https://github.com/rocketlaunchr/electron-alert
 
 # Usage
 
--   See https://sweetalert2.github.io/#configuration and https://sweetalert2.github.io/#methods for further details.
--   Not all methods are implemented as yet. See `alert.js` for more details.
+-   See [SweetAlert2 v8.19](https://sweetalert2.github.io/v8.html) Documentation for further details ([configuration](https://sweetalert2.github.io/v8.html#configuration) & [methods](https://sweetalert2.github.io/v8.html#methods))
+-   Not all methods are implemented as yet. See `src/alert.js` for more details.
 -   Most methods will return a Promise that will resolve to the value from Swal.
 
 ## API
@@ -129,7 +129,7 @@ Alert.fireToast(swalOptions);
 
 ## Exception Alert
 
-Uncaught exceptions in the main process produce a hideous alert on both windows and mac. You can use `uncaughtException()` to intercept the exception.
+Uncaught exceptions in the main process produce a hideous alert on both windows and macOS. You can use `uncaughtException()` to intercept the exception.
 
 ```javascript
 const Alert = require("electron-alert");
@@ -140,7 +140,7 @@ app.on("ready", () => {
 		Alert.uncaughtException(false, err => {
 			console.error("Uncaught Exception:", err);
 			process.exit(1);
-		})
+		}, true, true)
 	);
 });
 ```
@@ -152,5 +152,3 @@ This library will be rebuilt from scratch for v1.0.0. Desktop alerts have certai
 # License
 
 The license is a modified MIT license. Refer to [LICENSE](https://github.com/rocketlaunchr/electron-alert/blob/master/LICENSE) file in Github repo for more details.
-
-**© 2019 PJ Engineering and Business Solutions Pty. Ltd.**
