@@ -46,6 +46,8 @@ https://github.com/rocketlaunchr/electron-alert
 -   **fireWithFrame(swalOptions, title, parent, alwaysOnTop, sound, size)**
 -   **fire(swalOptions, bwOptions, parent, alwaysOnTop, draggable, sound)**
 -   **static fireToast(swalOptions, sound, size)**
+-   **static uncaughtException(hideTrace, closure, alwaysOnTop, cleanStack)**
+-   **const DismissReason = { cancel, close, esc, timer }**
 
 Note: `swalOptions` mirrors SweetAlert2 options. `bwOptions` mirrors BrowserWindow options.
 
@@ -91,7 +93,14 @@ let swalOptions = {
 	showCancelButton: true
 };
 
-alert.fireWithFrame(swalOptions, "Delete file?", null, false);
+let promise = alert.fireWithFrame(swalOptions, "Delete file?", null, false);
+promise.then((result) => {
+	if (result.value) {
+		// confirmed
+	} else if result.dismiss === Alert.DismissReason.cancel {
+		// canceled
+	}
+})
 ```
 
 ## Frameless
@@ -151,4 +160,4 @@ This library will be rebuilt from scratch for v1.0.0. Desktop alerts have certai
 
 # License
 
-The license is a modified MIT license. Refer to [LICENSE](https://github.com/rocketlaunchr/electron-alert/blob/master/LICENSE) file in Github repo for more details.
+The license is a MIT license. Refer to [LICENSE](https://github.com/rocketlaunchr/electron-alert/blob/master/LICENSE) file in Github repo for more details.

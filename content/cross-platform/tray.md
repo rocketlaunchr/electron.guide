@@ -19,7 +19,3 @@ Windows 10    | Windows 7
 ### macOS
 
 {{< figure src="/static/images/tray/mac_tray.gif" >}}
-
-## Known Bugs
-
-* On older versions, once you create a tray icon, attempting to destroy it will crash the application.
