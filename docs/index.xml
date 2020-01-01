@@ -98,7 +98,7 @@ You need to know the difference between these two events: dom-ready and ready-to
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/cross-platform/tray/</guid>
-      <description>Tray Windows    Windows 10 Windows 7               Tray menu      Tray menu        Balloon      Balloon       macOS   Known Bugs  On older versions, once you create a tray icon, attempting to destroy it will crash the application.</description>
+      <description> Tray Windows    Windows 10 Windows 7               Tray menu      Tray menu        Balloon      Balloon       macOS   </description>
     </item>
     
   </channel>
