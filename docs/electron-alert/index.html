@@ -382,7 +382,7 @@ app.on(<span style="color:#c30">&#34;ready&#34;</span>, () =&gt; {
 		<span style="color:#c30">&#34;uncaughtException&#34;</span>,
 		Alert.uncaughtException(<span style="color:#069;font-weight:bold">false</span>, err =&gt; {
 			console.error(<span style="color:#c30">&#34;Uncaught Exception:&#34;</span>, err);
-			process.exit(<span style="color:#f60">1</span>);
+			app.exit(<span style="color:#f60">1</span>);
 		}, <span style="color:#069;font-weight:bold">true</span>, <span style="color:#069;font-weight:bold">true</span>)
 	);
 });
