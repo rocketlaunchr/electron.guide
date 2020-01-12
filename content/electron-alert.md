@@ -148,7 +148,7 @@ app.on("ready", () => {
 		"uncaughtException",
 		Alert.uncaughtException(false, err => {
 			console.error("Uncaught Exception:", err);
-			process.exit(1);
+			app.exit(1);
 		}, true, true)
 	);
 });

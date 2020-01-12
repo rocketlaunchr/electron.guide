@@ -101,6 +101,8 @@ ipcRenderer.once("<channel>", (event, args) => {
 })
 ```
 
+If your BrowserWindow is set to transparent, you can also use a CSS based solution for fading-in.
+
 ### **Prevent BrowserWindow refreshes**
 
 A user can press `Cmd+R` (on macOS) or `F5` (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don't exhibit this behaviour.
