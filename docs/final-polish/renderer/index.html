@@ -102,10 +102,12 @@
 
 <ol>
 <li><code>ready-to-show</code> event is part of <code>BrowserWindow</code>, and <code>dom-ready</code> event is part of <code>webContents</code>.</li>
-<li>In the BrowserWindow event life-cycle, <code>dom-ready</code> always comes <strong>before</strong> <code>ready-to-show</code>.</li>
+<li>In the BrowserWindow event life-cycle, <strong><code>dom-ready</code></strong> always comes <strong>BEFORE</strong> <strong><code>ready-to-show</code></strong>.</li>
 <li>You can inject data like this:</li>
 </ol>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> { BrowserWindow } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">// main.js (main process)
+</span><span style="color:#09f;font-style:italic"></span>
+<span style="color:#069;font-weight:bold">const</span> { BrowserWindow } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
 
 <span style="color:#069;font-weight:bold">let</span> win <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> BrowserWindow({ show<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">false</span> })
 
@@ -114,7 +116,14 @@ win.once(<span style="color:#c30">&#39;ready-to-show&#39;</span>, () =&gt; {
 })
 
 win.webContents.on(<span style="color:#c30">&#39;dom-ready&#39;</span>, (event) =&gt; {
-    win.webContents.send(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, Data1, Data2, Data3)
+    win.webContents.send(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, Data1, Data2, Data3) <span style="color:#09f;font-style:italic">// This is asynchronous
+</span><span style="color:#09f;font-style:italic"></span>})
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">// renderer.js (renderer process)
+</span><span style="color:#09f;font-style:italic"></span>
+<span style="color:#069;font-weight:bold">const</span> { ipcRenderer } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
+
+ipcRenderer.once(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, (event, args) =&gt; {
+  <span style="color:#069;font-weight:bold">let</span> Data1 <span style="color:#555">=</span> args[<span style="color:#f60">0</span>]
 })
 </code></pre></div>
 <p>See:</p>
@@ -124,11 +133,55 @@ win.webContents.on(<span style="color:#c30">&#39;dom-ready&#39;</span>, (event) 
 <li><a href="https://electronjs.org/docs/api/web-contents">https://electronjs.org/docs/api/web-contents</a></li>
 </ul>
 
+<h3 id="fade-in-browserwindow"><strong>Fade in BrowserWindow</strong></h3>
+
+<p>The above advice will <em>abrupty</em> show the BrowserWindow without any flickering. If you are using <a href="https://reactjs.org/">React.js</a>, then it is possible that your page has not yet completed rendering. If you want to guarantee that your page has finished rendering, then only <code>show</code> it after rendering is complete.</p>
+
+<p>You can further smoothen your application by creating a <strong>fade-in</strong> effect to make it feel less <em>abrupt</em>.</p>
+
+<p>A <strong>linear</strong> <strong>fade-in</strong> animation curve can be easily accomplished. <strong><code>totalTime (ms)</code></strong> controls how long the fade-in effect should take in total (transparent → opaque). <strong><code>totalSteps</code></strong> controls the time-resolution.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">// main.js (main process)
+</span><span style="color:#09f;font-style:italic"></span>
+<span style="color:#069;font-weight:bold">const</span> { BrowserWindow, ipcMain} <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
+
+<span style="color:#069;font-weight:bold">let</span> win <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">new</span> BrowserWindow({ show<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">false</span>, opacity<span style="color:#555">:</span> <span style="color:#f60">0.0</span> }) <span style="color:#09f;font-style:italic">// initially transparent
+</span><span style="color:#09f;font-style:italic"></span>
+win.webContents.on(<span style="color:#c30">&#39;dom-ready&#39;</span>, (event) =&gt; {
+    win.webContents.send(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, Data1) <span style="color:#09f;font-style:italic">// This is asynchronous
+</span><span style="color:#09f;font-style:italic"></span>})
+
+ipcMain.once(<span style="color:#c30">&#34;browser-window-ready-to-show&#34;</span>, (event, args) =&gt; {
+  win.show()
+})
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#09f;font-style:italic">// renderer.js (renderer process)
+</span><span style="color:#09f;font-style:italic"></span>
+<span style="color:#069;font-weight:bold">const</span> { ipcRenderer, remote } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
+
+ipcRenderer.once(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, (event, args) =&gt; {
+  <span style="color:#069;font-weight:bold">let</span> Data1 <span style="color:#555">=</span> args[<span style="color:#f60">0</span>]
+
+  ipcRenderer.send(<span style="color:#c30">&#34;browser-window-ready-to-show&#34;</span>)
+
+  <span style="color:#069;font-weight:bold">let</span> currentWindow <span style="color:#555">=</span> remote.getCurrentWindow()
+
+  <span style="color:#069;font-weight:bold">let</span> totalSteps <span style="color:#555">=</span> <span style="color:#f60">20.0</span>
+  <span style="color:#069;font-weight:bold">let</span> totalTime <span style="color:#555">=</span> <span style="color:#f60">1000.0</span>
+
+  <span style="color:#069;font-weight:bold">let</span> currentOpacity <span style="color:#555">=</span> currentWindow.getOpacity()
+
+  <span style="color:#069;font-weight:bold">let</span> timerID <span style="color:#555">=</span> setInterval(() =&gt; {
+    currentOpacity <span style="color:#555">=</span> currentOpacity <span style="color:#555">+</span> (<span style="color:#f60">1.0</span><span style="color:#a00;background-color:#faa">/totalSteps)</span>
+    currentWindow.setOpacity(currentOpacity)
+    <span style="color:#069;font-weight:bold">if</span> currentOpacity <span style="color:#555">&gt;</span> <span style="color:#f60">1.0</span> {
+      clearInterval(timerID);
+    }
+  }, totalTime<span style="color:#a00;background-color:#faa">/totalSteps)</span>
+</code></pre></div>
 <h3 id="prevent-browserwindow-refreshes"><strong>Prevent BrowserWindow refreshes</strong></h3>
 
 <p>A user can press <code>Cmd+R</code> (on macOS) or <code>F5</code> (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don&rsquo;t exhibit this behaviour.</p>
 
-<p>The recommended solution is to replace the default menu to disable this behaviour.</p>
+<p>The recommended solution is to replace the default menu to disable this behaviour. On Windows, you can call <code>win.removeMenu()</code>.</p>
 
 <p>For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> { globalShortcut } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)

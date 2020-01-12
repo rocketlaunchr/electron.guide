@@ -137,9 +137,11 @@
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">process.on(<span style="color:#c30">&#39;uncaughtException&#39;</span>, error =&gt; {
 	<span style="color:#09f;font-style:italic">// Replace code below to display a prettier window
 </span><span style="color:#09f;font-style:italic"></span>	console.error(<span style="color:#c30">&#39;Exception:&#39;</span>, error); 
-	process.exit(<span style="color:#f60">1</span>);
-});
+	app.exit(<span style="color:#f60">1</span>) <span style="color:#09f;font-style:italic">// or process.exit(1);
+</span><span style="color:#09f;font-style:italic"></span>});
 </code></pre></div>
+<p>An additional suggestion is you can use package <a href="https://www.npmjs.com/package/clean-stack">clean-stack</a> to filter the noise in the stack trace and then transmit the error data to your server before exiting.</p>
+
 <ul>
 <li>See <a href="https://github.com/sindresorhus/electron-unhandled">https://github.com/sindresorhus/electron-unhandled</a>.</li>
 <li>See https://electron.guide/electron-alert/#exception-alert (<strong>recommended</strong>)</li>
