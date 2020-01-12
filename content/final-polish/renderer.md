@@ -17,10 +17,12 @@ If you use [React.js](https://reactjs.org/) for your BrowserWindow javascript, y
 You need to know the difference between these two events: `dom-ready` and `ready-to-show`.
 
 1. `ready-to-show` event is part of `BrowserWindow`, and `dom-ready` event is part of `webContents`.
-2. In the BrowserWindow event life-cycle, `dom-ready` always comes **before** `ready-to-show`.
+2. In the BrowserWindow event life-cycle, **`dom-ready`** always comes **BEFORE** **`ready-to-show`**.
 3. You can inject data like this:
 
 ```javascript
+// main.js (main process)
+
 const { BrowserWindow } = require('electron')
 
 let win = new BrowserWindow({ show: false })
@@ -30,21 +32,80 @@ win.once('ready-to-show', () => {
 })
 
 win.webContents.on('dom-ready', (event) => {
-    win.webContents.send("<channel>", Data1, Data2, Data3)
+    win.webContents.send("<channel>", Data1, Data2, Data3) // This is asynchronous
 })
 ``` 
+```javascript
+// renderer.js (renderer process)
+
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.once("<channel>", (event, args) => {
+  let Data1 = args[0]
+})
+```
 
 See:
 
 * https://electronjs.org/docs/api/browser-window
 * https://electronjs.org/docs/api/web-contents
 
+### **Fade in BrowserWindow**
+
+The above advice will _abrupty_ show the BrowserWindow without any flickering. If you are using [React.js](https://reactjs.org/), then it is possible that your page has not yet completed rendering. If you want to guarantee that your page has finished rendering, then only `show` it after rendering is complete.
+
+You can further smoothen your application by creating a **fade-in** effect to make it feel less _abrupt_.
+
+A **linear** **fade-in** animation curve can be easily accomplished. **`totalTime (ms)`** controls how long the fade-in effect should take in total (transparent → opaque). **`totalSteps`** controls the time-resolution.
+
+
+```javascript
+// main.js (main process)
+
+const { BrowserWindow, ipcMain} = require('electron')
+
+let win = new BrowserWindow({ show: false, opacity: 0.0 }) // initially transparent
+
+win.webContents.on('dom-ready', (event) => {
+    win.webContents.send("<channel>", Data1) // This is asynchronous
+})
+
+ipcMain.once("browser-window-ready-to-show", (event, args) => {
+  win.show()
+})
+``` 
+```javascript
+// renderer.js (renderer process)
+
+const { ipcRenderer, remote } = require('electron')
+
+ipcRenderer.once("<channel>", (event, args) => {
+  let Data1 = args[0]
+
+  ipcRenderer.send("browser-window-ready-to-show")
+
+  let currentWindow = remote.getCurrentWindow()
+
+  let totalSteps = 20.0
+  let totalTime = 1000.0
+
+  let currentOpacity = currentWindow.getOpacity()
+
+  let timerID = setInterval(() => {
+    currentOpacity = currentOpacity + (1.0/totalSteps)
+    currentWindow.setOpacity(currentOpacity)
+    if currentOpacity > 1.0 {
+      clearInterval(timerID);
+    }
+  }, totalTime/totalSteps)
+
+```
 
 ### **Prevent BrowserWindow refreshes**
 
 A user can press `Cmd+R` (on macOS) or `F5` (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don't exhibit this behaviour.
 
-The recommended solution is to replace the default menu to disable this behaviour.
+The recommended solution is to replace the default menu to disable this behaviour. On Windows, you can call `win.removeMenu()`.
 
 For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.
 

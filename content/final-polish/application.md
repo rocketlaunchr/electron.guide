@@ -54,9 +54,11 @@ You can intercept it and replace the error message with a prettier window:
 process.on('uncaughtException', error => {
 	// Replace code below to display a prettier window
 	console.error('Exception:', error); 
-	process.exit(1);
+	app.exit(1) // or process.exit(1);
 });
 ```
+
+An additional suggestion is you can use package [clean-stack](https://www.npmjs.com/package/clean-stack) to filter the noise in the stack trace and then transmit the error data to your server before exiting.
 
 - See https://github.com/sindresorhus/electron-unhandled.
 - See {{< ref "/electron-alert#exception-alert" >}} (**recommended**)
