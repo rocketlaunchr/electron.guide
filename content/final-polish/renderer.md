@@ -98,7 +98,7 @@ ipcRenderer.once("<channel>", (event, args) => {
       clearInterval(timerID);
     }
   }, totalTime/totalSteps)
-
+})
 ```
 
 ### **Prevent BrowserWindow refreshes**
