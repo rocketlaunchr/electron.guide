@@ -107,7 +107,7 @@ If your BrowserWindow is set to transparent, you can also use a CSS based soluti
 
 A user can press `Cmd+R` (on macOS) or `F5` (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don't exhibit this behaviour.
 
-The recommended solution is to replace the default menu to disable this behaviour. On Windows, you can call `win.removeMenu()`. On macOS, you can call `Menu.setApplicationMenu(Menu.buildFromTemplate([]))` only in production since this also loses access to DevTools.
+The recommended solution is to replace the default menu to disable this behaviour. On Windows, you can call `win.removeMenu()`. On macOS, you can call `Menu.setApplicationMenu(Menu.buildFromTemplate([]))`. You should only do it for production since you will lose access to DevTools.
 
 For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.
 
