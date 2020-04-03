@@ -109,7 +109,7 @@ A user can press `Cmd+R` (on macOS) or `F5` (on Windows) to refresh the webpage 
 
 The recommended solution is to replace the default menu to disable this behaviour. On Windows, you can call `win.removeMenu()`. On macOS, you can call `Menu.setApplicationMenu(Menu.buildFromTemplate([]))`. You should only do it for production since you will lose access to DevTools.
 
-For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus or is closed/hidden.
+For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus **or** is closed/hidden.
 
 ```javascript
 const { globalShortcut } = require('electron')
