@@ -182,7 +182,7 @@ ipcRenderer.once(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, (eve
 
 <h3 id="prevent-browserwindow-refreshes"><strong>Prevent BrowserWindow refreshes</strong></h3>
 
-<p>A user can press <code>Cmd+R</code> (on macOS) or <code>F5</code> (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don&rsquo;t exhibit this behaviour.</p>
+<p>A user can press <code>Cmd+R</code> (on macOS) or <code>Ctrl+R/Ctrl+Shift+R/F5</code> (on Windows) to refresh the webpage shown by the BrowserWindow. True native applications don&rsquo;t exhibit this behaviour.</p>
 
 <p>The recommended solution is to replace the default menu to disable this behaviour. On Windows, you can call <code>win.removeMenu()</code>. On macOS, you can call <code>Menu.setApplicationMenu(Menu.buildFromTemplate([]))</code>. You should only do it for production since you will lose access to DevTools.</p>
 
