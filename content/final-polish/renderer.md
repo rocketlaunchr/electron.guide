@@ -112,14 +112,14 @@ The recommended solution is to replace the default menu to disable this behaviou
 For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus **or** is closed/hidden.
 
 ```javascript
-const { globalShortcut } = require('electron')
+const electronLocalshortcut = require('electron-localshortcut')
 
 win.on('focus', (event) => {
-    globalShortcut.registerAll(['CommandOrControl+R','F5'], () => {})
+    electronLocalshortcut.register(win, ['CommandOrControl+R','F5'], () => {})
 })
 
 win.on('blur', (event) => {
-    globalShortcut.unregisterAll()
+    electronLocalshortcut.unregisterAll(win)
 })
 ```
 
