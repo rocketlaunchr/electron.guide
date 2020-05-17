@@ -115,7 +115,7 @@ For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the B
 const electronLocalshortcut = require('electron-localshortcut')
 
 win.on('focus', (event) => {
-    electronLocalshortcut.register(win, ['CommandOrControl+R','F5'], () => {})
+    electronLocalshortcut.register(win, ['CommandOrControl+R','CommandOrControl+Shift+R', 'F5'], () => {})
 })
 
 win.on('blur', (event) => {
