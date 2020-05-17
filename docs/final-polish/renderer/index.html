@@ -187,14 +187,14 @@ ipcRenderer.once(<span style="color:#c30">&#34;&lt;channel&gt;&#34;</span>, (eve
 <p>The recommended solution is to replace the default menu to disable this behaviour. On Windows, you can call <code>win.removeMenu()</code>. On macOS, you can call <code>Menu.setApplicationMenu(Menu.buildFromTemplate([]))</code>. You should only do it for production since you will lose access to DevTools.</p>
 
 <p>For Kiosk Mode, another solution is to Disable the keyboard shortcuts when the BrowserWindow takes focus and then unregister the shortcuts when the BrowserWindow loses focus <strong>or</strong> is closed/hidden.</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> { globalShortcut } <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron&#39;</span>)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">const</span> electronLocalshortcut <span style="color:#555">=</span> require(<span style="color:#c30">&#39;electron-localshortcut&#39;</span>)
 
 win.on(<span style="color:#c30">&#39;focus&#39;</span>, (event) =&gt; {
-    globalShortcut.registerAll([<span style="color:#c30">&#39;CommandOrControl+R&#39;</span>,<span style="color:#c30">&#39;F5&#39;</span>], () =&gt; {})
+    electronLocalshortcut.register(win, [<span style="color:#c30">&#39;CommandOrControl+R&#39;</span>,<span style="color:#c30">&#39;F5&#39;</span>], () =&gt; {})
 })
 
 win.on(<span style="color:#c30">&#39;blur&#39;</span>, (event) =&gt; {
-    globalShortcut.unregisterAll()
+    electronLocalshortcut.unregisterAll(win)
 })
 </code></pre></div>
 <p>See: <a href="https://electronjs.org/docs/api/global-shortcut">https://electronjs.org/docs/api/global-shortcut</a></p>
