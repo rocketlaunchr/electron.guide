@@ -47,7 +47,7 @@ https://github.com/rocketlaunchr/electron-alert
 -   **fire(swalOptions, bwOptions, parent, alwaysOnTop, draggable, sound)**
 -   **static fireToast(swalOptions, sound, size)**
 -   **static uncaughtException(hideTrace, closure, alwaysOnTop, cleanStack)**
--   **const DismissReason = { cancel, close, esc, timer }**
+-   **const DismissReason = { cancel, close, esc, timer, showing }**
 
 Note: `swalOptions` mirrors SweetAlert2 options. `bwOptions` mirrors BrowserWindow options.
 
