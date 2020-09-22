@@ -1,5 +1,5 @@
 ---
-title: BrowserWindow
+title: Electron-Alert
 date: 2019-08-01
 draft: false
 exclude_search: false
