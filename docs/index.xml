@@ -6,20 +6,20 @@
     <description>Recent content on electron.guide</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://electron.guide/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>BrowserWindow</title>
+      <title>Electron-Alert</title>
       <link>https://electron.guide/electron-alert/</link>
-      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://electron.guide/electron-alert/</guid>
       <description>ElectronAlert is a beautiful and developer-friendly alert for Electron applications. It is powered by SweetAlert2 and works directly from the main process.
-   Features  WithFrame and Frameless alerts that are visually stunning Toasts with timers Exception handling alert Sounds SweetAlert2-esque API* (v8.19)  Installation npm install electron-alert  Github https://github.com/rocketlaunchr/electron-alert
-Usage  See SweetAlert2 v8.19 Documentation for further details (configuration &amp;amp; methods) Not all methods are implemented as yet.</description>
+   Features  WithFrame and Frameless alerts that are visually stunning Toasts with timers Exception handling alert Sounds SweetAlert2-esque API* (v11)  Installation npm install electron-alert  Github https://github.com/rocketlaunchr/electron-alert
+Usage  See SweetAlert2 v11 Documentation for further details (configuration &amp;amp; methods) Not all methods are implemented as yet.</description>
     </item>
     
     <item>

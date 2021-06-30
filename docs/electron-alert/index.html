@@ -113,7 +113,7 @@
 <li>Toasts with timers</li>
 <li>Exception handling alert</li>
 <li>Sounds</li>
-<li>SweetAlert2-esque API* (<a href="https://sweetalert2.github.io/v8.html">v8.19</a>)</li>
+<li>SweetAlert2-esque API* (<a href="https://sweetalert2.github.io/v11.html">v11</a>)</li>
 </ul>
 
 <h1 id="installation">Installation</h1>
@@ -126,7 +126,7 @@
 <h1 id="usage">Usage</h1>
 
 <ul>
-<li>See <a href="https://sweetalert2.github.io/v8.html">SweetAlert2 v8.19</a> Documentation for further details (<a href="https://sweetalert2.github.io/v8.html#configuration">configuration</a> &amp; <a href="https://sweetalert2.github.io/v8.html#methods">methods</a>)</li>
+<li>See <a href="https://sweetalert2.github.io/v11.html">SweetAlert2 v11</a> Documentation for further details (<a href="https://sweetalert2.github.io/v11.html#configuration">configuration</a> &amp; <a href="https://sweetalert2.github.io/v11.html#methods">methods</a>)</li>
 <li>Not all methods are implemented as yet. See <code>src/alert.js</code> for more details.</li>
 <li>Most methods will return a Promise that will resolve to the value from Swal.</li>
 </ul>
@@ -322,6 +322,35 @@
 </tbody>
 </table>
 
+<h3 id="singleton-mode">singleton mode</h3>
+
+<p>To guarantee that only a single alert for a particular scenario is displayed at any one time, you can provide an arbitrary <code>singletonId</code> for <code>swalOptions</code>.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">let</span> swalOptions <span style="color:#555">=</span> {
+	singletonId<span style="color:#555">:</span> <span style="color:#c30">&#34;do-you-want-to-exit-alert&#34;</span>
+};
+</code></pre></div>
+<p>In this example, if the user clicks exit, we will ask for a confirmation of their intent. If they don&rsquo;t dismiss the alert and then click exit again, another alert will not be shown until the original alert is closed.</p>
+
+<h3 id="globalshortcut">globalShortcut</h3>
+
+<p>For (only) macOS, to prevent users from pressing <code>Cmd+R</code> and refreshing the dialog, a <code>globalShortcut</code> is used to block out <code>Cmd+R</code> and <code>Cmd+Shift+R</code>.</p>
+
+<p>To disable this behavior:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">let</span> bwOptions <span style="color:#555">=</span> {
+	noGlobalShortcut<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">true</span>
+};
+</code></pre></div>
+<p><strong>NOTE:</strong> You may need to peruse <code>src/alert.js</code> and call <code>fire</code> directly to access <code>bwOptions</code>.</p>
+
+<h3 id="supported-lifecycle-events">Supported Lifecycle Events</h3>
+
+<ol>
+<li>willOpen - Runs before the alert is shown on screen.</li>
+<li>didOpen -  Runs after the alert has been shown on screen.</li>
+<li>willClose -  Runs when the alert closes by user interaction.</li>
+<li>didClose - Runs after the alert has been disposed by user interaction.</li>
+</ol>
+
 <h1 id="examples">Examples</h1>
 
 <h2 id="standard-alert">Standard Alert</h2>
@@ -332,7 +361,7 @@
 <span style="color:#069;font-weight:bold">let</span> swalOptions <span style="color:#555">=</span> {
 	title<span style="color:#555">:</span> <span style="color:#c30">&#34;Are you sure you want to delete?&#34;</span>,
 	text<span style="color:#555">:</span> <span style="color:#c30">&#34;You won&#39;t be able to revert this!&#34;</span>,
-	type<span style="color:#555">:</span> <span style="color:#c30">&#34;warning&#34;</span>,
+	icon<span style="color:#555">:</span> <span style="color:#c30">&#34;warning&#34;</span>,
 	showCancelButton<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">true</span>
 };
 
@@ -340,7 +369,7 @@
 promise.then((result) =&gt; {
 	<span style="color:#069;font-weight:bold">if</span> (result.value) {
 		<span style="color:#09f;font-style:italic">// confirmed
-</span><span style="color:#09f;font-style:italic"></span>	} <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> result.dismiss <span style="color:#555">===</span> Alert.DismissReason.cancel {
+</span><span style="color:#09f;font-style:italic"></span>	} <span style="color:#069;font-weight:bold">else</span> <span style="color:#069;font-weight:bold">if</span> (result.dismiss <span style="color:#555">===</span> Alert.DismissReason.cancel) {
 		<span style="color:#09f;font-style:italic">// canceled
 </span><span style="color:#09f;font-style:italic"></span>	}
 })
@@ -353,7 +382,7 @@ promise.then((result) =&gt; {
 <span style="color:#069;font-weight:bold">let</span> swalOptions <span style="color:#555">=</span> {
 	title<span style="color:#555">:</span> <span style="color:#c30">&#34;Are you sure you want to delete?&#34;</span>,
 	text<span style="color:#555">:</span> <span style="color:#c30">&#34;You won&#39;t be able to revert this!&#34;</span>,
-	type<span style="color:#555">:</span> <span style="color:#c30">&#34;warning&#34;</span>,
+	icon<span style="color:#555">:</span> <span style="color:#c30">&#34;warning&#34;</span>,
 	showCancelButton<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">true</span>
 };
 
@@ -365,7 +394,7 @@ alert.fireFrameless(swalOptions, <span style="color:#069;font-weight:bold">null<
 <span style="color:#069;font-weight:bold">let</span> swalOptions <span style="color:#555">=</span> {
 	position<span style="color:#555">:</span> <span style="color:#c30">&#34;top-end&#34;</span>,
 	title<span style="color:#555">:</span> <span style="color:#c30">&#34;Signed in successfully&#34;</span>,
-	type<span style="color:#555">:</span> <span style="color:#c30">&#34;success&#34;</span>,
+	icon<span style="color:#555">:</span> <span style="color:#c30">&#34;success&#34;</span>,
 	showConfirmButton<span style="color:#555">:</span> <span style="color:#069;font-weight:bold">true</span>,
 	timer<span style="color:#555">:</span> <span style="color:#f60">3000</span>
 };
@@ -405,7 +434,7 @@ app.on(<span style="color:#c30">&#34;ready&#34;</span>, () =&gt; {
 <div class="dc-page">
 	<div id="disqus_thread"></div>
 
-  <div style="text-align: center;"> &copy; 2019&ndash;20 <a target="_blank" href="https://rocketlaunchr.cloud">rocketlaunchr.cloud</a>. All rights reserved.</div>
+  <div style="text-align: center;"> &copy; 2019&ndash;21 <a target="_blank" href="https://rocketlaunchr.cloud">rocketlaunchr.cloud</a>. All rights reserved.</div>
 </div>
 <script>
 
