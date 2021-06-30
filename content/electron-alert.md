@@ -1,6 +1,6 @@
 ---
 title: Electron-Alert
-date: 2019-08-01
+date: 2021-06-01
 draft: false
 exclude_search: false
 ---
@@ -21,7 +21,7 @@ ElectronAlert is a beautiful and developer-friendly alert for [Electron](https:/
 -   Toasts with timers
 -   Exception handling alert
 -   Sounds
--   SweetAlert2-esque API\* ([v8.19](https://sweetalert2.github.io/v8.html))
+-   SweetAlert2-esque API\* ([v11](https://sweetalert2.github.io/v11.html))
 
 # Installation
 
@@ -35,7 +35,7 @@ https://github.com/rocketlaunchr/electron-alert
 
 # Usage
 
--   See [SweetAlert2 v8.19](https://sweetalert2.github.io/v8.html) Documentation for further details ([configuration](https://sweetalert2.github.io/v8.html#configuration) & [methods](https://sweetalert2.github.io/v8.html#methods))
+-   See [SweetAlert2 v11](https://sweetalert2.github.io/v11.html) Documentation for further details ([configuration](https://sweetalert2.github.io/v11.html#configuration) & [methods](https://sweetalert2.github.io/v11.html#methods))
 -   Not all methods are implemented as yet. See `src/alert.js` for more details.
 -   Most methods will return a Promise that will resolve to the value from Swal.
 
@@ -77,6 +77,39 @@ An optional note can be played when the alert is displayed. See https://marcgg.c
 | **7** | 2093  | 2217  | 2349  | 2489  | 2637  | 2794  | 2960  | 3136  | 3322  | 3520  | 3729  | 3951  |
 | **8** | 4186  | 4435  | 4699  | 4978  | 5274  | 5588  | 5920  | 6272  | 6645  | 7040  | 7459  | 7902  |
 
+### singleton mode
+
+To guarantee that only a single alert for a particular scenario is displayed at any one time, you can provide an arbitrary `singletonId` for `swalOptions`.
+
+```javascript
+let swalOptions = {
+	singletonId: "do-you-want-to-exit-alert"
+};
+```
+
+In this example, if the user clicks exit, we will ask for a confirmation of their intent. If they don't dismiss the alert and then click exit again, another alert will not be shown until the original alert is closed.
+
+### globalShortcut
+
+For (only) macOS, to prevent users from pressing `Cmd+R` and refreshing the dialog, a `globalShortcut` is used to block out `Cmd+R` and `Cmd+Shift+R`.
+
+To disable this behavior:
+
+```javascript
+let bwOptions = {
+	noGlobalShortcut: true
+};
+```
+
+**NOTE:** You may need to peruse `src/alert.js` and call `fire` directly to access `bwOptions`.
+
+### Supported Lifecycle Events
+
+1. willOpen - Runs before the alert is shown on screen.
+2. didOpen -  Runs after the alert has been shown on screen.
+3. willClose -  Runs when the alert closes by user interaction.
+4. didClose - Runs after the alert has been disposed by user interaction.
+
 # Examples
 
 ## Standard Alert
@@ -89,7 +122,7 @@ let alert = new Alert();
 let swalOptions = {
 	title: "Are you sure you want to delete?",
 	text: "You won't be able to revert this!",
-	type: "warning",
+	icon: "warning",
 	showCancelButton: true
 };
 
@@ -97,7 +130,7 @@ let promise = alert.fireWithFrame(swalOptions, "Delete file?", null, false);
 promise.then((result) => {
 	if (result.value) {
 		// confirmed
-	} else if result.dismiss === Alert.DismissReason.cancel {
+	} else if (result.dismiss === Alert.DismissReason.cancel) {
 		// canceled
 	}
 })
@@ -113,7 +146,7 @@ let alert = new Alert();
 let swalOptions = {
 	title: "Are you sure you want to delete?",
 	text: "You won't be able to revert this!",
-	type: "warning",
+	icon: "warning",
 	showCancelButton: true
 };
 
@@ -128,7 +161,7 @@ const Alert = require("electron-alert");
 let swalOptions = {
 	position: "top-end",
 	title: "Signed in successfully",
-	type: "success",
+	icon: "success",
 	showConfirmButton: true,
 	timer: 3000
 };
